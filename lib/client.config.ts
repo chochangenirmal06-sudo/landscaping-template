@@ -80,7 +80,7 @@ export const clientConfig = {
       price: "$85",
       priceLabel: "for standard residential lawn",
       badge: "MAINTENANCE",
-      image: "/images/Lawn Care & Maintenance1.png",
+      image: "/images/Lawn%20Care%20%26%20Maintenance1.png",
       features: ["Weekly Mowing & Edging", "Fertilization Programs", "Weed & Pest Control"],
     },
     {
@@ -92,7 +92,7 @@ export const clientConfig = {
       price: "$499",
       priceLabel: "for initial design consultation",
       badge: "DESIGN",
-      image: "/images/Landscape Design1.png",
+      image: "/images/Landscape%20Design1.png",
       features: ["Initial Consultation", "Digital Landscape Plans", "Residential & Commercial"],
     },
     {
@@ -104,7 +104,7 @@ export const clientConfig = {
       price: "$299",
       priceLabel: "for system inspection & tune-up",
       badge: "IRRIGATION",
-      image: "/images/Irrigation Systems1.png",
+      image: "/images/Irrigation%20Systems1.png",
       features: ["Smart System Install", "Leak Detection & Repair", "Seasonal Calibration"],
     },
     {
@@ -116,7 +116,7 @@ export const clientConfig = {
       price: "$1,500",
       priceLabel: "for standard patio installation",
       badge: "HARDSCAPE",
-      image: "/images/Hardscaping & Patios1.png",
+      image: "/images/Hardscaping%20%26%20Patios1.png",
       features: ["Patios & Walkways", "Retaining Walls", "Outdoor Kitchens"],
     },
     {
@@ -128,7 +128,7 @@ export const clientConfig = {
       price: "$250",
       priceLabel: "for standard residential cleanup",
       badge: "SEASONAL",
-      image: "/images/Seasonal Cleanup1.png",
+      image: "/images/Seasonal%20Cleanup1.png",
       features: ["Spring & Fall Cleanup", "Leaf Removal", "Winter Prep"],
     },
     {
@@ -140,7 +140,7 @@ export const clientConfig = {
       price: "$150",
       priceLabel: "for standard trim & shape",
       badge: "TREE CARE",
-      image: "/images/Tree & Shrub Care1.png",
+      image: "/images/Tree%20%26%20Shrub%20Care1.png",
       features: ["Crown Trimming & Shaping", "Health Treatments", "Safe Removal"],
     },
     {
@@ -152,7 +152,7 @@ export const clientConfig = {
       price: "$120",
       priceLabel: "for standard mulch installation",
       badge: "MULCHING",
-      image: "/images/Mulching & Soil Health1.png",
+      image: "/images/Mulching%20%26%20Soil%20Health1.png",
       features: ["Premium Mulch Install", "Soil Amendment", "Weed Suppression"],
     },
     {
@@ -164,7 +164,7 @@ export const clientConfig = {
       price: "$350",
       priceLabel: "for initial garden bed design",
       badge: "GARDEN",
-      image: "/images/Garden Bed Design1.png",
+      image: "/images/Garden%20Bed%20Design1.png",
       features: ["Seasonal Planting", "Perennial Beds", "Native Plant Selection"],
     },
   ],
