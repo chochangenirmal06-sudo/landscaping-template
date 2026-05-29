@@ -1,0 +1,169 @@
+"use client";
+
+import { Users, Home, MessageCircle, Shield } from "lucide-react";
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Data
+// ─────────────────────────────────────────────────────────────────────────────
+
+const CARDS = [
+  {
+    Icon: Users,
+    title: "15+ Years of Experience",
+    body: "We've been proudly serving Greater Austin with expert landscape care for over a decade.",
+  },
+  {
+    Icon: Home,
+    title: "Local & Family-Owned",
+    body: "We're part of the Austin community and treat every yard like our own — no call centers, no franchises.",
+  },
+  {
+    Icon: MessageCircle,
+    title: "Clear, Direct Communication",
+    body: "You work directly with our team — no middlemen, no surprises, just honest and transparent service.",
+  },
+  {
+    Icon: Shield,
+    title: "Reliable & Fair Pricing",
+    body: "Count on us for on-time service, no hidden fees, and competitive rates that respect your budget.",
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Component
+// ─────────────────────────────────────────────────────────────────────────────
+
+export default function WhyChooseUs() {
+  return (
+    <section
+      className="w-full"
+      style={{ background: "#1C2B1A", padding: "100px 0" }}
+    >
+
+      {/* ── Header ── */}
+      <div className="text-center px-5">
+
+        {/* Pill label */}
+        <span
+          className="font-dmsans inline-block"
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            borderRadius: "50px",
+            padding: "6px 18px",
+            fontSize: "12px",
+            color: "#FFFFFF",
+          }}
+        >
+          Why Choose Us
+        </span>
+
+        {/* Headline */}
+        <h2
+          style={{
+            fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
+            fontSize: "clamp(36px, 5vw, 52px)",
+            fontWeight: 300,
+            color: "#FFFFFF",
+            lineHeight: 1.1,
+            margin: "16px 0 12px",
+          }}
+        >
+          Austin&rsquo;s Go-To Landscaping Pros
+        </h2>
+
+        {/* Subtext */}
+        <p
+          className="font-dmsans mx-auto"
+          style={{
+            fontSize: "16px",
+            color: "rgba(255,255,255,0.55)",
+            maxWidth: "580px",
+            margin: "0 auto 64px",
+            lineHeight: 1.7,
+          }}
+        >
+          With over 15 years of experience and a hands-on approach, we deliver
+          trusted, top-quality landscaping tailored to your needs.
+        </p>
+
+      </div>
+
+      {/* ── Cards grid ── */}
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mx-auto px-5 md:px-10 lg:px-[60px]"
+        style={{ maxWidth: "1200px" }}
+      >
+        {CARDS.map(({ Icon, title, body }) => (
+          <div
+            key={title}
+            className="group relative overflow-hidden transition-colors duration-200"
+            style={{
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "20px",
+              padding: "36px 28px",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLDivElement).style.background =
+                "rgba(255,255,255,0.07)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLDivElement).style.background =
+                "rgba(255,255,255,0.04)";
+            }}
+          >
+            {/* Decorative circle */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                bottom: "-40px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "160px",
+                height: "160px",
+                borderRadius: "50%",
+                background: "rgba(184,144,42,0.06)",
+                pointerEvents: "none",
+              }}
+            />
+
+            {/* Icon */}
+            <Icon
+              size={48}
+              strokeWidth={1.5}
+              style={{ color: "#B8902A", marginBottom: "20px", display: "block" }}
+            />
+
+            {/* Title */}
+            <h3
+              className="font-dmsans"
+              style={{
+                fontSize: "17px",
+                fontWeight: 600,
+                color: "#FFFFFF",
+                marginBottom: "12px",
+              }}
+            >
+              {title}
+            </h3>
+
+            {/* Body */}
+            <p
+              className="font-dmsans"
+              style={{
+                fontSize: "14px",
+                color: "rgba(255,255,255,0.55)",
+                lineHeight: 1.7,
+              }}
+            >
+              {body}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </section>
+  );
+}
