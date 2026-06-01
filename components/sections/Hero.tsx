@@ -11,8 +11,9 @@ export default function Hero() {
   // Two-line heading from config; falls back to auto-splitting tagline at midpoint.
   const words = business.tagline.split(" ");
   const mid   = Math.ceil(words.length / 2);
-  const line1 = (business as any).heroLine1 ?? words.slice(0, mid).join(" ");
-  const line2 = (business as any).heroLine2 ?? words.slice(mid).join(" ");
+  const biz = business as typeof business & { heroLine1?: string; heroLine2?: string };
+  const line1 = biz.heroLine1 ?? words.slice(0, mid).join(" ");
+  const line2 = biz.heroLine2 ?? words.slice(mid).join(" ");
 
   return (
     <section style={{ position: "relative", minHeight: "100svh",
