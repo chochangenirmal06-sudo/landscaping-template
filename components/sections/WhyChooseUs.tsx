@@ -1,21 +1,20 @@
 "use client";
 
 import { Users, Home, MessageCircle, Shield } from "lucide-react";
+import { clientConfig } from "@/lib/client.config";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Data
-// ─────────────────────────────────────────────────────────────────────────────
+const { city, stats } = clientConfig.business;
 
 const CARDS = [
   {
     Icon: Users,
-    title: "15+ Years of Experience",
-    body: "We've been proudly serving Greater Austin with expert landscape care for over a decade.",
+    title: `${stats.yearsExperience} Years of Experience`,
+    body: `We've been proudly serving Greater ${city} with expert landscape care for over a decade.`,
   },
   {
     Icon: Home,
     title: "Local & Family-Owned",
-    body: "We're part of the Austin community and treat every yard like our own — no call centers, no franchises.",
+    body: `We're part of the ${city} community and treat every yard like our own — no call centers, no franchises.`,
   },
   {
     Icon: MessageCircle,
@@ -29,18 +28,14 @@ const CARDS = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Component
-// ─────────────────────────────────────────────────────────────────────────────
-
 export default function WhyChooseUs() {
   return (
     <section
       className="w-full"
-      style={{ background: "#1C2B1A", padding: "100px 0" }}
+      style={{ background: "var(--color-primary)", padding: "100px 0" }}
     >
 
-      {/* ── Header ── */}
+      {/* Header */}
       <div className="text-center px-5">
 
         {/* Pill label */}
@@ -52,7 +47,7 @@ export default function WhyChooseUs() {
             borderRadius: "50px",
             padding: "6px 18px",
             fontSize: "12px",
-            color: "#FFFFFF",
+            color: "var(--color-primary-text)",
           }}
         >
           Why Choose Us
@@ -64,12 +59,12 @@ export default function WhyChooseUs() {
             fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
             fontSize: "clamp(36px, 5vw, 52px)",
             fontWeight: 300,
-            color: "#FFFFFF",
+            color: "var(--color-primary-text)",
             lineHeight: 1.1,
             margin: "16px 0 12px",
           }}
         >
-          Austin&rsquo;s Go-To Landscaping Pros
+          {clientConfig.whyChooseUs.headline}
         </h2>
 
         {/* Subtext */}
@@ -83,13 +78,12 @@ export default function WhyChooseUs() {
             lineHeight: 1.7,
           }}
         >
-          With over 15 years of experience and a hands-on approach, we deliver
-          trusted, top-quality landscaping tailored to your needs.
+          {clientConfig.whyChooseUs.subtext}
         </p>
 
       </div>
 
-      {/* ── Cards grid ── */}
+      {/* Cards grid */}
       <div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mx-auto px-5 md:px-10 lg:px-[60px]"
         style={{ maxWidth: "1200px" }}
@@ -105,12 +99,10 @@ export default function WhyChooseUs() {
               padding: "36px 28px",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.background =
-                "rgba(255,255,255,0.07)";
+              (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.07)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLDivElement).style.background =
-                "rgba(255,255,255,0.04)";
+              (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.04)";
             }}
           >
             {/* Decorative circle */}
@@ -124,7 +116,7 @@ export default function WhyChooseUs() {
                 width: "160px",
                 height: "160px",
                 borderRadius: "50%",
-                background: "rgba(184,144,42,0.06)",
+                background: "rgb(var(--color-accent-dark-rgb) / 0.06)",
                 pointerEvents: "none",
               }}
             />
@@ -133,18 +125,13 @@ export default function WhyChooseUs() {
             <Icon
               size={48}
               strokeWidth={1.5}
-              style={{ color: "#B8902A", marginBottom: "20px", display: "block" }}
+              style={{ color: "var(--color-accent-dark)", marginBottom: "20px", display: "block" }}
             />
 
             {/* Title */}
             <h3
               className="font-dmsans"
-              style={{
-                fontSize: "17px",
-                fontWeight: 600,
-                color: "#FFFFFF",
-                marginBottom: "12px",
-              }}
+              style={{ fontSize: "17px", fontWeight: 600, color: "var(--color-primary-text)", marginBottom: "12px" }}
             >
               {title}
             </h3>
@@ -152,11 +139,7 @@ export default function WhyChooseUs() {
             {/* Body */}
             <p
               className="font-dmsans"
-              style={{
-                fontSize: "14px",
-                color: "rgba(255,255,255,0.55)",
-                lineHeight: 1.7,
-              }}
+              style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}
             >
               {body}
             </p>

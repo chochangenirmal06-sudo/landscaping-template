@@ -7,10 +7,7 @@ import { clientConfig } from "@/lib/client.config";
 const BORDER = "rgba(255,255,255,0.08)";
 
 function AccordionItem({
-  faq,
-  isOpen,
-  isLast,
-  onToggle,
+  faq, isOpen, isLast, onToggle,
 }: {
   faq: { q: string; a: string };
   isOpen: boolean;
@@ -25,7 +22,7 @@ function AccordionItem({
       >
         <span
           className="font-playfair text-lg leading-snug transition-colors duration-200"
-          style={{ color: isOpen ? "#B8902A" : "#FFFFFF" }}
+          style={{ color: isOpen ? "var(--color-accent-dark)" : "var(--color-primary-text)" }}
         >
           {faq.q}
         </span>
@@ -33,7 +30,7 @@ function AccordionItem({
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.22 }}
           className="text-2xl font-light flex-shrink-0 leading-none"
-          style={{ color: "#B8902A" }}
+          style={{ color: "var(--color-accent-dark)" }}
         >
           +
         </motion.span>
@@ -64,7 +61,7 @@ function AccordionItem({
 const ContactButton = ({ className }: { className?: string }) => (
   <a
     href="#contact"
-    className={`inline-flex items-center gap-2 border border-[#C89B3E] text-[#C89B3E] hover:bg-[#C89B3E] hover:text-[#1A2E1A] font-dmsans text-sm font-semibold tracking-wide px-10 py-3.5 rounded-full transition-all duration-200 ${className ?? ""}`}
+    className={`inline-flex items-center gap-2 border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-brand-accent-text font-dmsans text-sm font-semibold tracking-wide px-10 py-3.5 rounded-full transition-all duration-200 ${className ?? ""}`}
   >
     Contact Us Directly →
   </a>
@@ -72,35 +69,32 @@ const ContactButton = ({ className }: { className?: string }) => (
 
 export default function FAQ() {
   const [open, setOpen] = useState<number>(0);
-
   const handleToggle = (i: number) => setOpen((prev) => (prev === i ? -1 : i));
-
   const faqs = clientConfig.faq.map(f => ({ q: f.question, a: f.answer }));
 
   return (
-    <section id="faq" className="relative py-[100px] overflow-hidden" style={{ background: "#1C2B1A" }}>
+    <section id="faq" className="relative py-[100px] overflow-hidden" style={{ background: "var(--color-primary)" }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="lg:grid lg:grid-cols-[2fr_3fr] lg:gap-20 lg:items-start">
 
-          {/* Left — sticky on desktop, stacks above accordion on mobile */}
+          {/* Left */}
           <div className="mb-16 lg:mb-0 lg:sticky lg:top-32">
-            <p className="font-dmsans text-xs tracking-[0.25em] uppercase text-[#C89B3E] mb-5">
+            <p className="font-dmsans text-xs tracking-[0.25em] uppercase text-brand-accent mb-5">
               — Frequently Asked —
             </p>
             <h2 className="font-playfair text-5xl md:text-6xl text-white font-normal leading-tight">
               Everything you{" "}
-              <em className="italic text-[#C89B3E]">wondered.</em>
+              <em className="italic text-brand-accent">wondered.</em>
             </h2>
             <p className="font-dmsans text-sm mt-6 leading-relaxed" style={{ color: "rgba(245,240,232,0.5)" }}>
               Can&apos;t find your answer? Give us a call.
             </p>
             <a
               href={clientConfig.business.phoneHref}
-              className="block font-playfair text-xl text-[#C89B3E] mt-2 hover:text-[#E8C06A] transition-colors"
+              className="block font-playfair text-xl text-brand-accent mt-2 hover:text-brand-accent-light transition-colors"
             >
               {clientConfig.business.phone}
             </a>
-            {/* Desktop button */}
             <ContactButton className="mt-8 hidden lg:inline-flex" />
           </div>
 
@@ -115,13 +109,11 @@ export default function FAQ() {
                 onToggle={() => handleToggle(i)}
               />
             ))}
-            {/* Mobile button — below last item */}
             <ContactButton className="mt-10 lg:hidden" />
           </div>
 
         </div>
       </div>
-
     </section>
   );
 }

@@ -6,7 +6,7 @@ import { clientConfig } from '@/lib/client.config'
 
 export const metadata: Metadata = {
   title: `Thank You | ${clientConfig.business.fullName}`,
-  description: 'Your consultation request has been received. We\'ll be in touch within 2 hours.',
+  description: "Your consultation request has been received. We'll be in touch within 2 hours.",
 }
 
 const STEPS = [
@@ -23,7 +23,7 @@ export default function ThankYouPage() {
       <main
         style={{
           minHeight: '100vh',
-          background: '#F5F0E8',
+          background: 'var(--color-bg)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -36,19 +36,19 @@ export default function ThankYouPage() {
           <div
             style={{
               width: '80px', height: '80px', borderRadius: '50%',
-              background: '#1C2B1A',
+              background: 'var(--color-primary)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               margin: '0 auto',
               animation: 'popIn 0.4s ease-out both',
             }}
           >
-            <span style={{ fontSize: '36px', color: '#FFFFFF', lineHeight: 1 }}>✓</span>
+            <span style={{ fontSize: '36px', color: 'var(--color-primary-text)', lineHeight: 1 }}>✓</span>
           </div>
 
           {/* Label */}
           <p
             style={{
-              fontSize: '11px', color: '#B8902A', letterSpacing: '0.2em',
+              fontSize: '11px', color: 'var(--color-accent-dark)', letterSpacing: '0.2em',
               textTransform: 'uppercase', marginTop: '24px', marginBottom: '8px',
               fontFamily: 'var(--font-dmsans), system-ui, sans-serif', fontWeight: 600,
             }}
@@ -61,7 +61,7 @@ export default function ThankYouPage() {
             style={{
               fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
               fontSize: 'clamp(40px, 8vw, 56px)', fontWeight: 300,
-              color: '#1C2B1A', lineHeight: 1.1, margin: '0',
+              color: 'var(--color-bg-text)', lineHeight: 1.1, margin: '0',
             }}
           >
             Your Quote Request Is In.
@@ -70,7 +70,7 @@ export default function ThankYouPage() {
           {/* Body */}
           <p
             style={{
-              fontSize: '16px', color: '#6B7280', lineHeight: 1.7,
+              fontSize: '16px', color: 'var(--color-text-muted)', lineHeight: 1.7,
               maxWidth: '420px', margin: '16px auto 0',
               fontFamily: 'var(--font-dmsans), system-ui, sans-serif',
             }}
@@ -79,19 +79,14 @@ export default function ThankYouPage() {
           </p>
 
           {/* Steps */}
-          <div
-            style={{
-              display: 'flex', alignItems: 'flex-start',
-              marginTop: '40px', gap: '0',
-            }}
-          >
+          <div style={{ display: 'flex', alignItems: 'flex-start', marginTop: '40px', gap: '0' }}>
             {STEPS.map(({ num, text }, i) => (
               <>
                 <div key={num} style={{ flex: '0 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <div
                     style={{
                       width: '40px', height: '40px', borderRadius: '50%',
-                      background: '#1C2B1A', color: '#B8902A',
+                      background: 'var(--color-primary)', color: 'var(--color-accent-dark)',
                       fontSize: '14px', fontWeight: 700,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontFamily: 'var(--font-dmsans), system-ui, sans-serif',
@@ -101,7 +96,7 @@ export default function ThankYouPage() {
                   </div>
                   <p
                     style={{
-                      fontSize: '13px', color: '#6B7280', textAlign: 'center',
+                      fontSize: '13px', color: 'var(--color-text-muted)', textAlign: 'center',
                       maxWidth: '120px', margin: '10px auto 0',
                       fontFamily: 'var(--font-dmsans), system-ui, sans-serif',
                       lineHeight: 1.4,
@@ -115,7 +110,7 @@ export default function ThankYouPage() {
                     key={`line-${i}`}
                     style={{
                       flex: 1, height: '1px',
-                      background: 'rgba(28,43,26,0.15)',
+                      background: 'rgb(var(--color-bg-text-rgb) / 0.15)',
                       marginTop: '20px',
                     }}
                   />
@@ -125,17 +120,12 @@ export default function ThankYouPage() {
           </div>
 
           {/* Buttons */}
-          <div
-            style={{
-              display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
-              gap: '12px', marginTop: '40px',
-            }}
-          >
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px', marginTop: '40px' }}>
             <Link
               href="/"
               style={{
                 display: 'inline-block',
-                background: '#B8902A', color: '#1C2B1A',
+                background: 'var(--color-accent-dark)', color: 'var(--color-accent-text)',
                 fontWeight: 700, textTransform: 'uppercase',
                 letterSpacing: '0.1em', fontSize: '13px',
                 padding: '16px 40px', borderRadius: '8px',
@@ -152,8 +142,8 @@ export default function ThankYouPage() {
               style={{
                 display: 'inline-block',
                 background: 'transparent',
-                border: '1px solid rgba(28,43,26,0.25)',
-                color: '#1C2B1A',
+                border: '1px solid rgb(var(--color-bg-text-rgb) / 0.25)',
+                color: 'var(--color-bg-text)',
                 fontWeight: 700, textTransform: 'uppercase',
                 letterSpacing: '0.1em', fontSize: '13px',
                 padding: '16px 40px', borderRadius: '8px',
@@ -167,17 +157,9 @@ export default function ThankYouPage() {
           </div>
 
           {/* Reassurance */}
-          <p
-            style={{
-              fontSize: '13px', color: '#9CA3AF', marginTop: '32px',
-              fontFamily: 'var(--font-dmsans), system-ui, sans-serif',
-            }}
-          >
+          <p style={{ fontSize: '13px', color: '#9CA3AF', marginTop: '32px', fontFamily: 'var(--font-dmsans), system-ui, sans-serif' }}>
             Questions? Call us at{' '}
-            <a
-              href={clientConfig.business.phoneHref}
-              style={{ color: '#B8902A', fontWeight: 600, textDecoration: 'none' }}
-            >
+            <a href={clientConfig.business.phoneHref} style={{ color: 'var(--color-accent-dark)', fontWeight: 600, textDecoration: 'none' }}>
               {clientConfig.business.phone}
             </a>
           </p>
@@ -191,8 +173,8 @@ export default function ThankYouPage() {
           from { transform: scale(0); opacity: 0; }
           to   { transform: scale(1); opacity: 1; }
         }
-        .thankyou-btn-primary:hover  { background: #9A7820 !important; }
-        .thankyou-btn-secondary:hover { background: rgba(28,43,26,0.05) !important; }
+        .thankyou-btn-primary:hover  { background: var(--color-accent) !important; }
+        .thankyou-btn-secondary:hover { background: rgb(var(--color-bg-text-rgb) / 0.05) !important; }
       `}</style>
     </>
   )

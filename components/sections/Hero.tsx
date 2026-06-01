@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden flex items-center" style={{ minHeight: "100svh", maxHeight: "960px" }}>
 
-      {/* Background image — z-0 so overlay (z-10) and content (z-20) always paint above it */}
+      {/* Background image */}
       <Image
         src="/images/hero-bg.png"
         alt={`${clientConfig.business.fullName} ${clientConfig.business.city} TX`}
@@ -20,10 +20,10 @@ export default function Hero() {
         style={{ zIndex: 0 }}
       />
 
-      {/* ── Overlay ── */}
+      {/* Overlay */}
       <div className="absolute inset-0 z-10 bg-black/55" />
 
-      {/* ── Content — left-aligned, not centered ── */}
+      {/* Content */}
       <div
         className="relative z-20 w-full px-5 md:px-8 lg:pl-[140px] pt-[140px] pb-[100px]"
         style={{ maxWidth: '720px' }}
@@ -31,9 +31,9 @@ export default function Hero() {
 
         {/* Label */}
         <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-[#C89B3E]" aria-hidden="true" />
+          <span className="h-px w-8 bg-brand-accent" aria-hidden="true" />
           <p
-            className="font-dmsans font-bold uppercase text-[#C89B3E]"
+            className="font-dmsans font-bold uppercase text-brand-accent"
             style={{ fontSize: '13px', letterSpacing: '0.25em' }}
           >
             {clientConfig.business.city}, {clientConfig.business.state} · Landscaping Services
@@ -55,7 +55,7 @@ export default function Hero() {
           {clientConfig.business.tagline}
         </h1>
 
-        {/* Gold brush-stroke underline */}
+        {/* Brush-stroke underline */}
         <svg
           width="380"
           height="18"
@@ -66,14 +66,14 @@ export default function Hero() {
         >
           <path
             d="M2 11.5C60 6 120 3.5 190 4C260 4.5 320 7 378 13.5"
-            stroke="#B8902A"
+            style={{ stroke: 'var(--color-accent-dark)' }}
             strokeWidth="6"
             strokeLinecap="round"
             opacity="0.9"
           />
           <path
             d="M15 14C70 9.5 140 7 200 7.5C265 8 325 10.5 370 15"
-            stroke="#B8902A"
+            style={{ stroke: 'var(--color-accent-dark)' }}
             strokeWidth="2.5"
             strokeLinecap="round"
             opacity="0.4"
@@ -100,8 +100,8 @@ export default function Hero() {
             className="hero-btn-primary w-full sm:w-auto text-center font-dmsans"
             style={{
               display: 'inline-block',
-              background: '#B8902A',
-              color: '#1C2B1A',
+              background: 'var(--color-accent-dark)',
+              color: 'var(--color-accent-text)',
               fontWeight: 700,
               padding: '18px 40px',
               borderRadius: '8px',
@@ -153,7 +153,7 @@ export default function Hero() {
       </div>
 
       <style>{`
-        .hero-btn-primary:hover  { background: #9A7820 !important; }
+        .hero-btn-primary:hover  { background: var(--color-accent) !important; }
         .hero-btn-secondary:hover { background: rgba(255,255,255,0.08) !important; }
       `}</style>
 

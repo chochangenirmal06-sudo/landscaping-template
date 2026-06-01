@@ -46,12 +46,12 @@ export default function GalleryPage() {
       {/* ═══════════════════════════════════════════════════
           HERO STRIP
       ═══════════════════════════════════════════════════ */}
-      <section style={{ background: "#1C2B1A", padding: "80px 0 60px" }}>
+      <section style={{ background: "var(--color-primary)", padding: "80px 0 60px" }}>
         <div className="text-center px-5">
 
           <p
             className="font-dmsans uppercase"
-            style={{ color: "#B8902A", fontSize: "11px", letterSpacing: "0.2em", marginBottom: "16px" }}
+            style={{ color: "var(--color-accent-dark)", fontSize: "11px", letterSpacing: "0.2em", marginBottom: "16px" }}
           >
             Our Work
           </p>
@@ -61,7 +61,7 @@ export default function GalleryPage() {
               fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
               fontSize: "clamp(36px, 5vw, 56px)",
               fontWeight: 300,
-              color: "#FFFFFF",
+              color: "var(--color-primary-text)",
               lineHeight: 1.1,
             }}
           >
@@ -86,7 +86,7 @@ export default function GalleryPage() {
       {/* ═══════════════════════════════════════════════════
           MASONRY GALLERY GRID
       ═══════════════════════════════════════════════════ */}
-      <section style={{ background: "#F5F0E8", paddingTop: "52px", paddingBottom: "100px" }}>
+      <section style={{ background: "var(--color-bg)", paddingTop: "52px", paddingBottom: "100px" }}>
         <div
           className="columns-1 sm:columns-2 lg:columns-3 mx-auto px-5 md:px-10 lg:px-[60px]"
           style={{ maxWidth: "1400px", columnGap: "16px" }}
@@ -111,7 +111,7 @@ export default function GalleryPage() {
               {/* Gradient overlay (fades in on hover) */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{ background: "linear-gradient(to top, rgba(28,43,26,0.6) 0%, transparent 60%)" }}
+                style={{ background: "linear-gradient(to top, rgb(var(--color-primary-rgb) / 0.6) 0%, transparent 60%)" }}
               />
             </div>
           ))}
@@ -231,7 +231,7 @@ export default function GalleryPage() {
       {/* ═══════════════════════════════════════════════════
           CTA STRIP
       ═══════════════════════════════════════════════════ */}
-      <section style={{ background: "#F5F0E8", padding: "80px 0" }}>
+      <section style={{ background: "var(--color-bg)", padding: "80px 0" }}>
         <div className="text-center px-5">
 
           <h2
@@ -239,7 +239,7 @@ export default function GalleryPage() {
               fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
               fontSize:   "clamp(32px, 5vw, 48px)",
               fontWeight: 300,
-              color:      "#1C2B1A",
+              color:      "var(--color-bg-text)",
               lineHeight: 1.1,
               marginBottom: "16px",
             }}
@@ -251,7 +251,7 @@ export default function GalleryPage() {
             className="font-dmsans mx-auto"
             style={{
               fontSize:     "16px",
-              color:        "rgba(28,43,26,0.6)",
+              color:        "rgb(var(--color-bg-text-rgb) / 0.6)",
               maxWidth:     "480px",
               marginBottom: "32px",
             }}
@@ -263,16 +263,16 @@ export default function GalleryPage() {
             href="/contact"
             className="inline-block font-dmsans font-bold uppercase transition-colors duration-200"
             style={{
-              background:    "#B8902A",
-              color:         "#1C2B1A",
+              background:    "var(--color-accent-dark)",
+              color:         "var(--color-accent-text)",
               padding:       "16px 40px",
               borderRadius:  "8px",
               fontSize:      "13px",
               letterSpacing: "0.1em",
               textDecoration:"none",
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#9A7820"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "#B8902A"; }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "var(--color-accent)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "var(--color-accent-dark)"; }}
           >
             GET A FREE QUOTE →
           </Link>

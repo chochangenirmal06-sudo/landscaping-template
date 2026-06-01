@@ -42,16 +42,17 @@ html, body {
 
 @layer base {
   :root {
-    /* Brand color custom properties */
-    --color-forest: #1A2E1A;
-    --color-sage: #4A7C59;
-    --color-meadow: #7BAE7F;
-    --color-cream: #F5F0E8;
-    --color-stone: #E8E0D0;
-    --color-bark: #6B5B45;
-    --color-charcoal: #1C1C1C;
-    --color-gold: #C89B3E;
-    --color-gold-light: #E8C06A;
+    /* Brand named aliases — point at the injected theme variables from layout.tsx.
+       Changing colors in client.config.ts automatically updates these. */
+    --color-forest:     var(--color-primary);
+    --color-sage:       var(--color-secondary);
+    --color-meadow:     var(--color-secondary);
+    --color-cream:      var(--color-bg);
+    --color-stone:      var(--color-bg);
+    --color-bark:       var(--color-text-muted);
+    --color-charcoal:   var(--color-bg-text);
+    --color-gold:       var(--color-accent);
+    --color-gold-light: var(--color-accent-light);
 
     /* shadcn/ui semantic tokens — HSL channel values (no hsl() wrapper) */
     --background: 40 40% 93%;

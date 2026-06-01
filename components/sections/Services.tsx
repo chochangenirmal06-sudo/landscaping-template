@@ -16,7 +16,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative bg-[#F5F0E8] py-[100px] px-4"
+      className="relative bg-brand-bg py-[100px] px-4"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -31,14 +31,14 @@ export default function Services() {
           {/* Left */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-8 h-px bg-[#C89B3E]" />
-              <span className="font-dmsans text-xs tracking-[0.2em] uppercase text-[#4A7C59]">
+              <span className="w-8 h-px bg-brand-accent" />
+              <span className="font-dmsans text-xs tracking-[0.2em] uppercase text-brand-secondary">
                 What We Do
               </span>
             </div>
-            <h2 className="font-playfair text-5xl md:text-6xl font-normal text-[#1A2E1A] leading-tight max-w-xl">
+            <h2 className="font-playfair text-5xl md:text-6xl font-normal text-brand-bg-text leading-tight max-w-xl">
               {clientConfig.business.city} {clientConfig.business.state} landscaping{" "}
-              <em className="font-playfair italic text-[#4A7C59]">
+              <em className="font-playfair italic text-brand-secondary">
                 services
               </em>
               , end-to-end.
@@ -46,7 +46,7 @@ export default function Services() {
           </div>
 
           {/* Right */}
-          <p className="font-dmsans text-base text-[#6B5B45] max-w-sm lg:mb-2">
+          <p className="font-dmsans text-base max-w-sm lg:mb-2" style={{ color: 'var(--color-text-muted)' }}>
             From the first call to the last blade of grass, we handle every aspect of your
             outdoor space. Serving {clientConfig.business.city} homeowners since {clientConfig.business.established}.
           </p>
@@ -64,7 +64,7 @@ export default function Services() {
             <motion.div
               key={service.name}
               variants={cardVariants}
-              className="bg-[#1A2E1A] rounded-2xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300"
+              className="bg-brand-primary rounded-2xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300"
             >
               {/* Image */}
               <div className="relative w-full aspect-[3/2] overflow-hidden">
@@ -77,7 +77,7 @@ export default function Services() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Category tag */}
-                <span className="absolute top-4 left-4 z-10 bg-[#C89B3E] text-[#1A2E1A] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
+                <span className="absolute top-4 left-4 z-10 bg-brand-accent text-brand-accent-text text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
                   {service.badge}
                 </span>
               </div>
@@ -97,7 +97,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <a href="/#estimate" className="mt-4 inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300 text-[#C89B3E] text-sm font-medium">
+                <a href="/#estimate" className="mt-4 inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300 text-brand-accent text-sm font-medium">
                   Get a Quote →
                 </a>
               </div>
@@ -108,15 +108,13 @@ export default function Services() {
         {/* Bottom CTA */}
         <div className="flex justify-center mt-16">
           <Link href="/services">
-            <button className="border-2 border-[#1A2E1A] text-[#1A2E1A] px-10 py-4 rounded-full text-sm font-semibold tracking-widest uppercase hover:bg-[#1A2E1A] hover:text-white transition-all duration-300 font-dmsans">
+            <button className="border-2 border-brand-primary text-brand-bg-text px-10 py-4 rounded-full text-sm font-semibold tracking-widest uppercase hover:bg-brand-primary hover:text-white transition-all duration-300 font-dmsans">
               See All Services
             </button>
           </Link>
         </div>
 
       </div>
-
-
     </section>
   );
 }

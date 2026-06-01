@@ -33,14 +33,14 @@ const itemVariants: Variants = {
 function HeaderContent() {
   return (
     <>
-      <p className="font-dmsans text-xs tracking-[0.3em] uppercase text-[#C89B3E] mb-5">
+      <p className="font-dmsans text-xs tracking-[0.3em] uppercase text-brand-accent mb-5">
         — How We Work —
       </p>
       <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl text-white font-normal leading-tight max-w-2xl">
         From First Call to{" "}
-        <em className="italic text-[#C89B3E]">Finished Project.</em>
+        <em className="italic text-brand-accent">Finished Project.</em>
       </h2>
-      <div className="w-12 h-px bg-[#C89B3E]/45 mt-8" />
+      <div className="w-12 h-px bg-brand-accent/45 mt-8" />
     </>
   );
 }
@@ -49,7 +49,7 @@ function CtaButton() {
   return (
     <a
       href="/contact"
-      className="group inline-flex items-center gap-4 bg-[#C89B3E] hover:bg-[#E8C06A] text-[#1A2E1A] font-semibold px-14 py-5 rounded-full text-sm tracking-widest uppercase transition-all duration-300 font-dmsans"
+      className="group inline-flex items-center gap-4 bg-brand-accent hover:bg-brand-accent-light text-brand-accent-text font-semibold px-14 py-5 rounded-full text-sm tracking-widest uppercase transition-all duration-300 font-dmsans"
     >
       GET A FREE QUOTE →
       <svg
@@ -68,7 +68,7 @@ function CtaButton() {
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative py-[100px] overflow-hidden" style={{ background: "#1C2B1A" }}>
+    <section id="how-it-works" className="relative py-[100px] overflow-hidden" style={{ background: "var(--color-primary)" }}>
 
       {/* Diagonal line texture */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ opacity: 0.025 }}>
@@ -108,7 +108,7 @@ export default function HowItWorks() {
       <div className="relative max-w-6xl mx-auto px-6 md:px-12">
         <div className="lg:grid lg:grid-cols-[9fr_11fr] lg:gap-20 lg:items-start">
 
-          {/* ── LEFT COLUMN — desktop sticky header + CTA (hidden on mobile) ── */}
+          {/* LEFT COLUMN — desktop sticky header + CTA */}
           <motion.div
             className="hidden lg:flex lg:flex-col lg:sticky lg:top-40"
             initial={{ opacity: 0, y: 30 }}
@@ -122,10 +122,10 @@ export default function HowItWorks() {
             </div>
           </motion.div>
 
-          {/* ── RIGHT COLUMN — mobile header + timeline + mobile CTA ── */}
+          {/* RIGHT COLUMN — mobile header + timeline + mobile CTA */}
           <div>
 
-            {/* Mobile header — hidden on desktop */}
+            {/* Mobile header */}
             <motion.div
               className="mb-24 md:mb-32 lg:hidden"
               initial={{ opacity: 0, y: 30 }}
@@ -138,7 +138,9 @@ export default function HowItWorks() {
 
             {/* Vertical timeline */}
             <div className="relative">
-              <div className="absolute left-0 top-3 bottom-3 w-px bg-gradient-to-b from-[#C89B3E]/0 via-[#C89B3E]/45 to-[#C89B3E]/0" />
+              <div
+                className="absolute left-0 top-3 bottom-3 w-px bg-gradient-to-b from-brand-accent/0 via-brand-accent/45 to-brand-accent/0"
+              />
 
               <motion.div
                 className="space-y-20 md:space-y-24"
@@ -153,12 +155,15 @@ export default function HowItWorks() {
                     variants={itemVariants}
                     className="relative pl-10 md:pl-16"
                   >
-                    {/* Gold dot */}
-                    <div className="absolute left-[-3px] top-[22px] w-[7px] h-[7px] rounded-full bg-[#C89B3E] shadow-[0_0_12px_3px_rgba(200,155,62,0.25)]" />
+                    {/* Accent dot */}
+                    <div
+                      className="absolute left-[-3px] top-[22px] w-[7px] h-[7px] rounded-full bg-brand-accent"
+                      style={{ boxShadow: '0 0 12px 3px rgb(var(--color-accent-rgb) / 0.25)' }}
+                    />
 
                     {/* Ghost number */}
                     <span
-                      className="absolute -top-6 left-4 md:left-6 font-playfair italic leading-none text-[#F5F0E8] select-none pointer-events-none hidden md:block"
+                      className="absolute -top-6 left-4 md:left-6 font-playfair italic leading-none text-brand-primary-text select-none pointer-events-none hidden md:block"
                       style={{ fontSize: "148px", opacity: 0.042 }}
                     >
                       {s.num}
@@ -166,7 +171,10 @@ export default function HowItWorks() {
 
                     <div className="relative grid md:grid-cols-[5fr,7fr] gap-5 md:gap-16 items-start">
                       <div>
-                        <p className="font-dmsans text-[10px] tracking-[0.32em] uppercase text-[#C89B3E]/55 mb-3">
+                        <p
+                          className="font-dmsans text-[10px] tracking-[0.32em] uppercase mb-3"
+                          style={{ color: 'rgb(var(--color-accent-rgb) / 0.55)' }}
+                        >
                           Step {s.num}
                         </p>
                         <h3 className="font-playfair text-2xl md:text-3xl lg:text-[2rem] text-white font-normal leading-snug">
@@ -182,7 +190,7 @@ export default function HowItWorks() {
               </motion.div>
             </div>
 
-            {/* Mobile CTA — hidden on desktop */}
+            {/* Mobile CTA */}
             <motion.div
               className="flex justify-center mt-24 md:mt-32 lg:hidden"
               initial={{ opacity: 0, y: 20 }}

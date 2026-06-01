@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { clientConfig } from "@/lib/client.config";
@@ -52,16 +53,29 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-[#1A2E1A] border-b border-white/10">
+      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-brand-primary border-b border-white/10">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
 
           {/* Logo */}
           <a
             href="/"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-            className="font-playfair italic text-2xl font-normal select-none text-[#F5F0E8]"
+            className="flex items-center gap-3 select-none"
           >
-            {clientConfig.business.name}
+            {clientConfig.logo ? (
+              <Image
+                src={clientConfig.logo}
+                alt={clientConfig.business.name}
+                width={120}
+                height={36}
+                className="h-9 w-auto object-contain"
+                priority
+              />
+            ) : (
+              <span className="font-playfair italic text-2xl font-normal text-brand-primary-text">
+                {clientConfig.business.name}
+              </span>
+            )}
           </a>
 
           {/* Desktop nav */}
@@ -75,9 +89,9 @@ export default function Navbar() {
                   onClick={href.startsWith("#") ? (e) => { e.preventDefault(); smoothScrollTo(href); } : undefined}
                   className={`relative font-playfair font-bold uppercase tracking-widest text-xs
                               transition-colors duration-300
-                              after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#C89B3E]
+                              after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brand-accent
                               hover:after:w-full after:transition-all after:duration-300
-                              ${active ? "text-[#C89B3E]" : "text-[#F5F0E8]/70 hover:text-[#C89B3E]"}`}
+                              ${active ? "text-brand-accent" : "text-brand-primary-text/70 hover:text-brand-accent"}`}
                 >
                   {label}
                 </a>
@@ -89,7 +103,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href={clientConfig.business.phoneHref}
-              className="hidden md:inline-flex items-center gap-2 text-sm text-[#F5F0E8] px-4 py-2 rounded-full transition-colors duration-200 hover:border-[rgba(245,240,232,0.7)]"
+              className="hidden md:inline-flex items-center gap-2 text-sm text-brand-primary-text px-4 py-2 rounded-full transition-colors duration-200 hover:border-[rgba(245,240,232,0.7)]"
               style={{ border: "1px solid rgba(245,240,232,0.4)", borderRadius: "999px" }}
             >
               <Phone size={13} strokeWidth={2} />
@@ -98,12 +112,12 @@ export default function Navbar() {
             <a
               href="#estimate"
               onClick={(e) => { e.preventDefault(); smoothScrollTo("#estimate"); }}
-              className="hidden md:block bg-[#C89B3E] text-[#1A2E1A] text-sm font-semibold px-6 py-2.5 rounded-full tracking-wide hover:bg-[#E8C06A] transition-colors duration-200"
+              className="hidden md:block bg-brand-accent text-brand-accent-text text-sm font-semibold px-6 py-2.5 rounded-full tracking-wide hover:bg-brand-accent-light transition-colors duration-200"
             >
               Get A Free Quote
             </a>
             <button
-              className="md:hidden text-[#F5F0E8]"
+              className="md:hidden text-brand-primary-text"
               onClick={() => setMobileOpen((o) => !o)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
@@ -124,7 +138,7 @@ export default function Navbar() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-40 flex flex-col bg-[#1A2E1A]"
+            className="fixed inset-0 z-40 flex flex-col bg-brand-primary"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation"
@@ -145,7 +159,7 @@ export default function Navbar() {
                     variants={itemVariants}
                     onClick={href.startsWith("#") ? (e) => { e.preventDefault(); handleNavClick(href); } : () => setMobileOpen(false)}
                     className={`font-playfair text-3xl transition-colors duration-200
-                                ${active ? "text-[#C89B3E]" : "text-white hover:text-[#C89B3E]"}`}
+                                ${active ? "text-brand-accent" : "text-white hover:text-brand-accent"}`}
                   >
                     {label}
                   </motion.a>
@@ -164,7 +178,7 @@ export default function Navbar() {
                 href="#estimate"
                 variants={itemVariants}
                 onClick={(e) => { e.preventDefault(); handleNavClick("#estimate"); }}
-                className="w-full max-w-xs rounded-full bg-[#C89B3E] px-8 py-4 font-dmsans text-sm font-semibold tracking-wide text-[#1A2E1A] hover:bg-[#E8C06A] transition-colors duration-200 text-center"
+                className="w-full max-w-xs rounded-full bg-brand-accent px-8 py-4 font-dmsans text-sm font-semibold tracking-wide text-brand-accent-text hover:bg-brand-accent-light transition-colors duration-200 text-center"
               >
                 Get A Free Quote
               </motion.a>

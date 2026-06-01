@@ -5,10 +5,6 @@ import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { clientConfig } from "@/lib/client.config";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Data
-// ─────────────────────────────────────────────────────────────────────────────
-
 const VALUE_PILLS = [
   `${clientConfig.business.stats.projectsCompleted} Projects Completed`,
   "Family Owned & Operated",
@@ -16,30 +12,18 @@ const VALUE_PILLS = [
   "Free Consultations",
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Component
-// ─────────────────────────────────────────────────────────────────────────────
-
 export default function AboutPreview() {
   return (
-    <section className="w-full" style={{ background: "#F5F0E8", padding: "100px 0" }}>
+    <section className="w-full" style={{ background: "var(--color-bg)", padding: "100px 0" }}>
       <div
         className="mx-auto grid grid-cols-1 lg:grid-cols-[55%_45%] items-center gap-16 lg:gap-20 px-5 md:px-10 lg:px-[60px]"
         style={{ maxWidth: "1200px" }}
       >
 
-        {/* ── LEFT — Image with overlays ───────────────────────────────── */}
-        {/*
-          Outer wrapper is the positioning context.
-          pb-7 pr-7 (28px) reserves visual space so the badge
-          doesn't bleed into adjacent content or get clipped.
-        */}
+        {/* LEFT — Image with overlays */}
         <div className="relative pb-7 pr-7 lg:pb-7 lg:pr-7">
 
-          {/* Image container — overflow:hidden for rounded corners */}
-          <div
-            className="relative overflow-hidden rounded-xl lg:rounded-[20px]"
-          >
+          <div className="relative overflow-hidden rounded-xl lg:rounded-[20px]">
             <Image
               src="/images/landscape-design.png"
               alt={`Professional landscaping by ${clientConfig.business.fullName} ${clientConfig.business.city} TX`}
@@ -49,7 +33,7 @@ export default function AboutPreview() {
               priority
             />
 
-            {/* Location badge — top-left, inside overflow:hidden */}
+            {/* Location badge */}
             <div
               className="absolute flex items-center"
               style={{
@@ -62,23 +46,23 @@ export default function AboutPreview() {
                 zIndex: 2,
               }}
             >
-              <MapPin size={14} style={{ color: "#B8902A", flexShrink: 0 }} />
+              <MapPin size={14} style={{ color: "var(--color-accent-dark)", flexShrink: 0 }} />
               <span
                 className="font-dmsans"
-                style={{ fontSize: "13px", fontWeight: 600, color: "#1C2B1A" }}
+                style={{ fontSize: "13px", fontWeight: 600, color: "var(--color-bg-text)" }}
               >
                 {clientConfig.business.city}, {clientConfig.business.state}
               </span>
             </div>
           </div>
 
-          {/* Stats badge — outside overflow:hidden, bottom-right of wrapper */}
+          {/* Stats badge */}
           <div
             className="absolute"
             style={{
               bottom: 0,
               right: 0,
-              background: "#1C2B1A",
+              background: "var(--color-primary)",
               borderRadius: "16px",
               padding: "24px 28px",
               boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
@@ -90,7 +74,7 @@ export default function AboutPreview() {
                 fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
                 fontSize: "48px",
                 fontWeight: 300,
-                color: "#B8902A",
+                color: "var(--color-accent-dark)",
                 lineHeight: 1,
               }}
             >
@@ -110,19 +94,19 @@ export default function AboutPreview() {
           </div>
         </div>
 
-        {/* ── RIGHT — Text content ─────────────────────────────────────── */}
+        {/* RIGHT — Text content */}
         <div>
 
           {/* Pill label */}
           <span
             className="font-dmsans inline-block"
             style={{
-              background: "rgba(28,43,26,0.08)",
-              border: "1px solid rgba(28,43,26,0.12)",
+              background: "rgb(var(--color-primary-rgb) / 0.08)",
+              border: "1px solid rgb(var(--color-primary-rgb) / 0.12)",
               borderRadius: "50px",
               padding: "6px 16px",
               fontSize: "12px",
-              color: "#1C2B1A",
+              color: "var(--color-bg-text)",
             }}
           >
             About Us
@@ -134,7 +118,7 @@ export default function AboutPreview() {
               fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
               fontSize: "clamp(36px, 4vw, 48px)",
               fontWeight: 300,
-              color: "#1C2B1A",
+              color: "var(--color-bg-text)",
               lineHeight: 1.1,
               margin: "16px 0 20px",
             }}
@@ -148,43 +132,35 @@ export default function AboutPreview() {
             style={{
               fontSize: "16px",
               lineHeight: 1.8,
-              color: "#6B7280",
+              color: "var(--color-text-muted)",
               maxWidth: "420px",
             }}
           >
             {clientConfig.about.story[0]}
           </p>
 
-          {/* Value pills — 2×2 flex-wrap grid */}
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "10px",
-              margin: "24px 0 32px",
-            }}
-          >
+          {/* Value pills */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", margin: "24px 0 32px" }}>
             {VALUE_PILLS.map((label) => (
               <span
                 key={label}
                 className="font-dmsans inline-flex items-center"
                 style={{
-                  background: "rgba(28,43,26,0.06)",
-                  border: "1px solid rgba(28,43,26,0.1)",
+                  background: "rgb(var(--color-primary-rgb) / 0.06)",
+                  border: "1px solid rgb(var(--color-primary-rgb) / 0.10)",
                   borderRadius: "50px",
                   padding: "10px 18px",
                   fontSize: "13px",
-                  color: "#1C2B1A",
+                  color: "var(--color-bg-text)",
                   fontWeight: 500,
                 }}
               >
-                {/* Gold dot */}
                 <span
                   style={{
                     display: "inline-block",
                     width: "6px",
                     height: "6px",
-                    background: "#B8902A",
+                    background: "var(--color-accent-dark)",
                     borderRadius: "50%",
                     marginRight: "8px",
                     flexShrink: 0,
@@ -200,8 +176,8 @@ export default function AboutPreview() {
             href="/about"
             className="inline-block font-dmsans font-bold uppercase transition-colors duration-200"
             style={{
-              background: "#B8902A",
-              color: "#1C2B1A",
+              background: "var(--color-accent-dark)",
+              color: "var(--color-accent-text)",
               fontSize: "13px",
               letterSpacing: "0.1em",
               borderRadius: "8px",
@@ -209,17 +185,16 @@ export default function AboutPreview() {
               textDecoration: "none",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "#9A7820";
+              (e.currentTarget as HTMLAnchorElement).style.background = "var(--color-accent)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "#B8902A";
+              (e.currentTarget as HTMLAnchorElement).style.background = "var(--color-accent-dark)";
             }}
           >
             VIEW MORE DETAILS →
           </Link>
 
         </div>
-        {/* ── END RIGHT ── */}
 
       </div>
     </section>

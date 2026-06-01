@@ -21,16 +21,42 @@ export const clientConfig = {
       rating: "4.9★",
       yearsExperience: "15+",
     },
+    // Google Maps embed URL for the CTA section.
+    // Generate at: https://www.google.com/maps/embed → Share → Embed a map → copy src URL
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110844.72736442!2d-97.8394!3d30.2672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b592d8d2ac6b%3A0x2dc4a0e2035cd8b2!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus",
+  },
+
+  // ─── WHY CHOOSE US ───────────────────────────
+  // Headline for the "Why Choose Us" section.
+  // The four cards below it are generic and do not need editing.
+  whyChooseUs: {
+    headline: "Austin's Go-To Landscaping Pros",
+    subtext: "With over 15 years of experience and a hands-on approach, we deliver trusted, top-quality landscaping tailored to your needs.",
   },
 
   // ─── BRAND ───────────────────────────────────
   // Logo goes in public/images/logo.png
   // If no logo available use null
   logo: "/images/logo.png",
+
+  // Change these 10 values to rebrand the entire site.
+  // primary + primaryText pair: dark background color and what reads on top of it.
+  // accent + accentDark + accentLight: highlight color family (lines, icons, buttons).
+  // accentText: text that sits on top of accent-colored buttons.
+  // bg + bgText pair: light section background and body text on it.
+  // secondary: supporting tone for section labels and subtle italic accents.
+  // textMuted: secondary / helper text throughout.
   colors: {
-    cream: "#F5F0E8",
-    dark: "#1C2B1A",
-    accent: "#B8902A",
+    primary:     "#1A2E1A",  // dark backgrounds — navbar, footer, dark sections
+    primaryText: "#F5F0E8",  // text / icons on primary-colored backgrounds
+    secondary:   "#4A7C59",  // section labels, supporting tone
+    accent:      "#C89B3E",  // decorative lines, icons, quote marks
+    accentDark:  "#B8902A",  // CTA buttons
+    accentLight: "#E8C06A",  // button hover state
+    accentText:  "#1A2E1A",  // text on accent-colored buttons
+    bg:          "#F5F0E8",  // light section backgrounds
+    bgText:      "#1A2E1A",  // body text on light backgrounds
+    textMuted:   "#6B7280",  // secondary / muted text
   },
 
   // ─── SOCIAL ──────────────────────────────────

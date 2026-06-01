@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { clientConfig } from "@/lib/client.config";
 
 const BOTTOM_ROW = [
   { src: "/images/portfolio4.png", category: "Irrigation" },
@@ -11,7 +12,7 @@ const BOTTOM_ROW = [
 
 export default function Portfolio() {
   return (
-    <section id="our-work" className="relative bg-[#F5F0E8] py-[100px] px-4">
+    <section id="our-work" className="relative bg-brand-bg py-[100px] px-4">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -24,21 +25,21 @@ export default function Portfolio() {
         >
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <span className="w-8 h-px bg-[#C89B3E]" />
-              <span className="font-dmsans text-xs tracking-[0.2em] uppercase text-[#4A7C59]">
+              <span className="w-8 h-px bg-brand-accent" />
+              <span className="font-dmsans text-xs tracking-[0.2em] uppercase text-brand-secondary">
                 Recent Work
               </span>
             </div>
-            <h2 className="font-playfair text-5xl md:text-6xl font-normal text-[#1A2E1A] leading-tight">
+            <h2 className="font-playfair text-5xl md:text-6xl font-normal text-brand-bg-text leading-tight">
               Portfolio of{" "}
-              <em className="italic text-[#C89B3E]">South Austin</em>
+              <em className="italic text-brand-accent">{clientConfig.business.city}</em>
               <br />landscapes.
             </h2>
           </div>
 
           <a
             href="#"
-            className="font-dmsans text-sm font-semibold tracking-widest uppercase text-[#1A2E1A] hover:text-[#C89B3E] transition-colors md:mb-2"
+            className="font-dmsans text-sm font-semibold tracking-widest uppercase text-brand-bg-text hover:text-brand-accent transition-colors md:mb-2"
           >
             View All Projects →
           </a>
@@ -135,7 +136,6 @@ export default function Portfolio() {
 
         </motion.div>
       </div>
-
     </section>
   );
 }
