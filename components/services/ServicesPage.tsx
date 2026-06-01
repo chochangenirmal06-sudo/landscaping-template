@@ -20,13 +20,24 @@ const stagger: Variants = {
 export default function ServicesPage() {
   const activeServices = clientConfig.services.filter(s => s.active);
 
+  const DEFAULT_IMAGES = [
+    "/images/Lawn%20Care%20%26%20Maintenance1.png",
+    "/images/Landscape%20Design1.png",
+    "/images/Irrigation%20Systems1.png",
+    "/images/Hardscaping%20%26%20Patios1.png",
+    "/images/Seasonal%20Cleanup1.png",
+    "/images/Tree%20%26%20Shrub%20Care1.png",
+    "/images/Mulching%20%26%20Soil%20Health1.png",
+    "/images/Garden%20Bed%20Design1.png",
+  ];
+
   const gridRef = useRef<HTMLDivElement>(null);
   const ctaRef  = useRef<HTMLDivElement>(null);
   const gridInView = useInView(gridRef, { once: true, margin: "-80px" });
   const ctaInView  = useInView(ctaRef,  { once: true, margin: "-80px" });
 
   return (
-    <div className="pt-32" style={{ background: "var(--color-bg)" }}>
+    <div className="pt-[148px]" style={{ background: "var(--color-bg)" }}>
 
       {/* SECTION 1 — PAGE HEADER */}
       <div className="text-center max-w-3xl mx-auto px-8 pb-16">
@@ -55,7 +66,7 @@ export default function ServicesPage() {
           animate={gridInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {activeServices.map((s) => (
+          {activeServices.map((s, index) => (
             <motion.div
               key={s.name}
               variants={fadeUp}
@@ -68,7 +79,7 @@ export default function ServicesPage() {
             >
               {/* Image */}
               <div className="relative h-[240px] overflow-hidden">
-                <Image src={s.image} alt={s.name} fill loading="eager" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
+                <Image src={s.image || DEFAULT_IMAGES[index % DEFAULT_IMAGES.length]} alt={s.name} fill loading="eager" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
                 <span
                   className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full font-dmsans"

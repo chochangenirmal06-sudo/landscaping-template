@@ -14,7 +14,7 @@ const VALUE_PILLS = [
 
 export default function AboutPreview() {
   return (
-    <section className="w-full" style={{ background: "var(--color-bg)", padding: "100px 0" }}>
+    <section className="w-full relative" style={{ background: "var(--color-bg)", padding: "100px 0" }}>
       <div
         className="mx-auto grid grid-cols-1 lg:grid-cols-[55%_45%] items-center gap-16 lg:gap-20 px-5 md:px-10 lg:px-[60px]"
         style={{ maxWidth: "1200px" }}
@@ -196,6 +196,16 @@ export default function AboutPreview() {
 
         </div>
 
+      </div>
+
+      {/* Cream → Dark wave */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0,
+        zIndex: 10, lineHeight: 0, pointerEvents: "none" }}>
+        <svg viewBox="0 0 1440 64" preserveAspectRatio="none"
+          style={{ display: "block", width: "100%", height: "64px" }}>
+          <path d="M0,32 C360,8 720,64 1080,30 C1260,14 1380,50 1440,36 L1440,64 L0,64 Z"
+            fill="var(--color-primary)" />
+        </svg>
       </div>
     </section>
   );

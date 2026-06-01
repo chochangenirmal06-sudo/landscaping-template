@@ -46,7 +46,7 @@ export default function GalleryPage() {
       {/* ═══════════════════════════════════════════════════
           HERO STRIP
       ═══════════════════════════════════════════════════ */}
-      <section style={{ background: "var(--color-primary)", padding: "80px 0 60px" }}>
+      <section style={{ background: "var(--color-primary)", padding: "148px 0 60px" }}>
         <div className="text-center px-5">
 
           <p

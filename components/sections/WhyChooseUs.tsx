@@ -31,7 +31,7 @@ const CARDS = [
 export default function WhyChooseUs() {
   return (
     <section
-      className="w-full"
+      className="w-full relative"
       style={{ background: "var(--color-primary)", padding: "100px 0" }}
     >
 
@@ -147,6 +147,15 @@ export default function WhyChooseUs() {
         ))}
       </div>
 
+      {/* Dark → Cream wave */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0,
+        zIndex: 10, lineHeight: 0, pointerEvents: "none" }}>
+        <svg viewBox="0 0 1440 64" preserveAspectRatio="none"
+          style={{ display: "block", width: "100%", height: "64px" }}>
+          <path d="M0,20 C360,72 720,4 1080,52 C1260,72 1380,28 1440,44 L1440,64 L0,64 Z"
+            fill="var(--color-bg)" />
+        </svg>
+      </div>
     </section>
   );
 }

@@ -5,6 +5,8 @@ export const clientConfig = {
     name: "GreenEdge",
     fullName: "GreenEdge Landscaping",
     tagline: "Austin's Most Trusted Landscaping Company.",
+    heroLine1: "Austin's Most Trusted",
+    heroLine2: "Landscaping Company.",
     heroSubtitle: "From first mow to full transformation — we take care of your yard like it's our own.",
     city: "Austin",
     state: "TX",
@@ -16,6 +18,13 @@ export const clientConfig = {
     contactFormEmail: "npermanent67@gmail.com",
     hours: "Mon–Sat: 7AM – 6PM",
     established: "2009",
+    ctaLabel: "Get a Free Quote",
+    trustBadges: [
+      "Licensed & Insured",
+      "Free Estimates",
+      "5-Star Rated Service",
+      "Locally Owned & Operated",
+    ],
     stats: {
       projectsCompleted: "500+",
       rating: "4.9★",

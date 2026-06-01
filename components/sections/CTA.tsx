@@ -14,7 +14,7 @@ const MAP_URL = clientConfig.business.mapEmbedUrl;
 
 export default function CTA() {
   return (
-    <section id="estimate" className="py-[100px]" style={{ background: "var(--color-bg)" }}>
+    <section id="estimate" className="relative py-[100px]" style={{ background: "var(--color-bg)" }}>
 
       <motion.div
         className="relative z-10 max-w-7xl mx-auto px-6 md:px-12"
@@ -55,7 +55,7 @@ export default function CTA() {
                 onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "var(--color-accent)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "var(--color-accent-dark)"; }}
               >
-                GET A FREE QUOTE →
+                {clientConfig.business.ctaLabel} →
               </a>
               <a
                 href={clientConfig.business.phoneHref}

@@ -161,7 +161,7 @@ export default function ContactPage() {
   return (
     <>
       {/* HERO */}
-      <section style={{ background: 'var(--color-primary)', padding: '100px 0 80px', textAlign: 'center' }}>
+      <section style={{ background: 'var(--color-primary)', padding: '148px 0 80px', textAlign: 'center' }}>
         <div style={{
           display: 'inline-block', background: 'rgba(255,255,255,0.1)',
           color: 'var(--color-primary-text)', borderRadius: '50px',

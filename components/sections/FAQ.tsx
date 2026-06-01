@@ -1,118 +1,223 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { clientConfig } from "@/lib/client.config";
 
-const BORDER = "rgba(255,255,255,0.08)";
-
-function AccordionItem({
-  faq, isOpen, isLast, onToggle,
-}: {
-  faq: { q: string; a: string };
-  isOpen: boolean;
-  isLast: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <div style={{ borderTop: `1px solid ${BORDER}`, ...(isLast ? { borderBottom: `1px solid ${BORDER}` } : {}) }}>
-      <button
-        className="w-full flex items-center justify-between py-7 text-left gap-6"
-        onClick={onToggle}
-      >
-        <span
-          className="font-playfair text-lg leading-snug transition-colors duration-200"
-          style={{ color: isOpen ? "var(--color-accent-dark)" : "var(--color-primary-text)" }}
-        >
-          {faq.q}
-        </span>
-        <motion.span
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.22 }}
-          className="text-2xl font-light flex-shrink-0 leading-none"
-          style={{ color: "var(--color-accent-dark)" }}
-        >
-          +
-        </motion.span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="overflow-hidden"
-          >
-            <p
-              className="font-dmsans text-base leading-relaxed pb-6 pr-8"
-              style={{ color: "rgba(255,255,255,0.65)" }}
-            >
-              {faq.a}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-const ContactButton = ({ className }: { className?: string }) => (
-  <a
-    href="#contact"
-    className={`inline-flex items-center gap-2 border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-brand-accent-text font-dmsans text-sm font-semibold tracking-wide px-10 py-3.5 rounded-full transition-all duration-200 ${className ?? ""}`}
-  >
-    Contact Us Directly →
-  </a>
-);
-
 export default function FAQ() {
-  const [open, setOpen] = useState<number>(0);
-  const handleToggle = (i: number) => setOpen((prev) => (prev === i ? -1 : i));
-  const faqs = clientConfig.faq.map(f => ({ q: f.question, a: f.answer }));
+  const [open, setOpen] = useState<number | null>(null);
+  const faqs = clientConfig.faq;
 
   return (
-    <section id="faq" className="relative py-[100px] overflow-hidden" style={{ background: "var(--color-primary)" }}>
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="lg:grid lg:grid-cols-[2fr_3fr] lg:gap-20 lg:items-start">
+    <section
+      id="faq"
+      className="relative py-[100px]"
+      style={{ background: "var(--color-primary)" }}
+    >
+      <div style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px" }}>
 
-          {/* Left */}
-          <div className="mb-16 lg:mb-0 lg:sticky lg:top-32">
-            <p className="font-dmsans text-xs tracking-[0.25em] uppercase text-brand-accent mb-5">
-              — Frequently Asked —
-            </p>
-            <h2 className="font-playfair text-5xl md:text-6xl text-white font-normal leading-tight">
-              Everything you{" "}
-              <em className="italic text-brand-accent">wondered.</em>
-            </h2>
-            <p className="font-dmsans text-sm mt-6 leading-relaxed" style={{ color: "rgba(245,240,232,0.5)" }}>
-              Can&apos;t find your answer? Give us a call.
-            </p>
+        {/* Header */}
+        <div style={{ marginBottom: "48px" }}>
+          <p
+            className="font-dmsans"
+            style={{
+              fontSize: "11px",
+              fontWeight: 600,
+              color: "var(--color-accent)",
+              textTransform: "uppercase",
+              letterSpacing: "0.22em",
+              marginBottom: "16px",
+            }}
+          >
+            Have Questions?
+          </p>
+
+          <h2
+            className="font-playfair"
+            style={{
+              fontSize: "clamp(34px, 5vw, 50px)",
+              fontWeight: 700,
+              color: "var(--color-primary-text)",
+              lineHeight: 1.05,
+              margin: "0 0 14px",
+            }}
+          >
+            Frequently Asked{" "}
+            <em
+              className="font-playfair italic"
+              style={{ fontWeight: 400, color: "var(--color-accent)" }}
+            >
+              Questions
+            </em>
+          </h2>
+
+          <p
+            className="font-dmsans"
+            style={{
+              fontSize: "15px",
+              fontStyle: "italic",
+              color: "rgba(255,255,255,0.42)",
+              margin: 0,
+              lineHeight: 1.6,
+            }}
+          >
+            Everything you need to know before getting started.
+          </p>
+        </div>
+
+        {/* FAQ rows — individual dark cards */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          {faqs.map((faq, i) => {
+            const isOpen = open === i;
+            return (
+              <div
+                key={i}
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                }}
+              >
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "20px",
+                    padding: "20px 24px",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                >
+                  <span
+                    className="font-dmsans"
+                    style={{
+                      fontSize: "15px",
+                      fontWeight: 400,
+                      color: "var(--color-primary-text)",
+                      flex: 1,
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {faq.question}
+                  </span>
+
+                  <motion.span
+                    animate={{ rotate: isOpen ? 45 : 0 }}
+                    transition={{ duration: 0.22 }}
+                    className="font-dmsans"
+                    style={{
+                      fontSize: "26px",
+                      fontWeight: 300,
+                      color: "var(--color-accent)",
+                      flexShrink: 0,
+                      lineHeight: 1,
+                      display: "block",
+                    }}
+                  >
+                    +
+                  </motion.span>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
+                      style={{ overflow: "hidden" }}
+                    >
+                      <p
+                        className="font-dmsans"
+                        style={{
+                          fontSize: "14px",
+                          lineHeight: 1.85,
+                          color: "rgba(255,255,255,0.55)",
+                          padding: "0 24px 22px",
+                          margin: 0,
+                          borderTop: "1px solid rgba(255,255,255,0.06)",
+                          paddingTop: "18px",
+                        }}
+                      >
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom contact line */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginTop: "32px",
+            padding: "20px 24px",
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.06)",
+            borderRadius: "12px",
+            flexWrap: "wrap",
+            gap: "12px",
+          }}
+        >
+          <p
+            className="font-dmsans"
+            style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)", margin: 0 }}
+          >
+            Still have a question?
+          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             <a
               href={clientConfig.business.phoneHref}
-              className="block font-playfair text-xl text-brand-accent mt-2 hover:text-brand-accent-light transition-colors"
+              className="font-dmsans"
+              style={{
+                fontSize: "13px",
+                fontWeight: 600,
+                color: "var(--color-accent)",
+                textDecoration: "none",
+              }}
             >
               {clientConfig.business.phone}
             </a>
-            <ContactButton className="mt-8 hidden lg:inline-flex" />
+            <a
+              href="/contact"
+              className="font-dmsans"
+              style={{
+                fontSize: "12px",
+                fontWeight: 600,
+                color: "var(--color-accent-text)",
+                background: "var(--color-accent-dark)",
+                padding: "8px 18px",
+                borderRadius: "50px",
+                textDecoration: "none",
+                letterSpacing: "0.04em",
+              }}
+            >
+              Contact Us →
+            </a>
           </div>
-
-          {/* Right — accordion */}
-          <div>
-            {faqs.map((faq, i) => (
-              <AccordionItem
-                key={i}
-                faq={faq}
-                isOpen={open === i}
-                isLast={i === faqs.length - 1}
-                onToggle={() => handleToggle(i)}
-              />
-            ))}
-            <ContactButton className="mt-10 lg:hidden" />
-          </div>
-
         </div>
+
+      </div>
+
+      {/* Dark → Cream wave */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0,
+        zIndex: 10, lineHeight: 0, pointerEvents: "none" }}>
+        <svg viewBox="0 0 1440 64" preserveAspectRatio="none"
+          style={{ display: "block", width: "100%", height: "64px" }}>
+          <path d="M0,32 C240,64 480,8 720,34 C960,60 1200,10 1440,32 L1440,64 L0,64 Z"
+            fill="var(--color-bg)" />
+        </svg>
       </div>
     </section>
   );

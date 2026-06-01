@@ -7,6 +7,17 @@ import { clientConfig } from "@/lib/client.config";
 
 const activeServices = clientConfig.services.filter(s => s.active);
 
+const DEFAULT_IMAGES = [
+  "/images/Lawn%20Care%20%26%20Maintenance1.png",
+  "/images/Landscape%20Design1.png",
+  "/images/Irrigation%20Systems1.png",
+  "/images/Hardscaping%20%26%20Patios1.png",
+  "/images/Seasonal%20Cleanup1.png",
+  "/images/Tree%20%26%20Shrub%20Care1.png",
+  "/images/Mulching%20%26%20Soil%20Health1.png",
+  "/images/Garden%20Bed%20Design1.png",
+];
+
 const cardVariants = {
   hidden: { y: 40 },
   visible: { y: 0, transition: { duration: 0.5 } },
@@ -60,7 +71,7 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.1 }}
         >
-          {activeServices.map((service) => (
+          {activeServices.map((service, index) => (
             <motion.div
               key={service.name}
               variants={cardVariants}
@@ -69,7 +80,7 @@ export default function Services() {
               {/* Image */}
               <div className="relative w-full aspect-[3/2] overflow-hidden">
                 <Image
-                  src={service.image}
+                  src={service.image || DEFAULT_IMAGES[index % DEFAULT_IMAGES.length]}
                   alt={service.name}
                   fill
                   loading="eager"
@@ -98,7 +109,7 @@ export default function Services() {
                   ))}
                 </ul>
                 <a href="/#estimate" className="mt-4 inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300 text-brand-accent text-sm font-medium">
-                  Get a Quote →
+                  {clientConfig.business.ctaLabel} →
                 </a>
               </div>
             </motion.div>
@@ -114,6 +125,16 @@ export default function Services() {
           </Link>
         </div>
 
+      </div>
+
+      {/* Cream → Dark wave */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0,
+        zIndex: 10, lineHeight: 0, pointerEvents: "none" }}>
+        <svg viewBox="0 0 1440 64" preserveAspectRatio="none"
+          style={{ display: "block", width: "100%", height: "64px" }}>
+          <path d="M0,32 C240,64 480,8 720,34 C960,60 1200,10 1440,32 L1440,64 L0,64 Z"
+            fill="var(--color-primary)" />
+        </svg>
       </div>
     </section>
   );

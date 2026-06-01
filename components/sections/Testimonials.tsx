@@ -38,7 +38,7 @@ function TestimonialCard({
       </span>
 
       {/* Quote text */}
-      <p className="font-playfair italic text-brand-bg-text text-[15px] leading-relaxed flex-1">
+      <p className="font-dmsans text-brand-bg-text text-[15px] leading-relaxed flex-1">
         {quote}
       </p>
 
@@ -67,7 +67,7 @@ function TestimonialCard({
 
 export default function Testimonials() {
   return (
-    <section id="reviews" className="bg-brand-bg py-[100px] overflow-hidden">
+    <section id="reviews" className="relative bg-brand-bg py-[100px] overflow-hidden">
 
       {/* Header */}
       <motion.div
@@ -119,6 +119,16 @@ export default function Testimonials() {
           />
         </div>
 
+      </div>
+
+      {/* Cream → Dark wave */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0,
+        zIndex: 10, lineHeight: 0, pointerEvents: "none" }}>
+        <svg viewBox="0 0 1440 64" preserveAspectRatio="none"
+          style={{ display: "block", width: "100%", height: "64px" }}>
+          <path d="M0,44 C240,8 600,72 960,28 C1140,8 1320,56 1440,24 L1440,64 L0,64 Z"
+            fill="var(--color-primary)" />
+        </svg>
       </div>
     </section>
   );

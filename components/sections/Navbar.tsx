@@ -16,21 +16,21 @@ const NAV_LINKS = [
 ];
 
 const overlayVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden:  { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.25 } },
-  exit: { opacity: 0, transition: { duration: 0.2 } },
+  exit:    { opacity: 0, transition: { duration: 0.2  } },
 };
 
 const listVariants: Variants = {
-  hidden: {},
+  hidden:  {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
-  exit: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+  exit:    { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden:  { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
-  exit: { opacity: 0, y: -12, transition: { duration: 0.2 } },
+  exit:    { opacity: 0, y: -12, transition: { duration: 0.2 } },
 };
 
 function smoothScrollTo(href: string) {
@@ -53,7 +53,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-brand-primary border-b border-white/10">
+      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-2 bg-brand-primary border-b border-white/10">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
 
           {/* Logo */}
@@ -66,9 +66,9 @@ export default function Navbar() {
               <Image
                 src={clientConfig.logo}
                 alt={clientConfig.business.name}
-                width={120}
-                height={36}
-                className="h-9 w-auto object-contain"
+                width={324}
+                height={108}
+                className="h-[108px] w-auto object-contain"
                 priority
               />
             ) : (
@@ -110,11 +110,10 @@ export default function Navbar() {
               {clientConfig.business.phone}
             </a>
             <a
-              href="#estimate"
-              onClick={(e) => { e.preventDefault(); smoothScrollTo("#estimate"); }}
+              href="/contact"
               className="hidden md:block bg-brand-accent text-brand-accent-text text-sm font-semibold px-6 py-2.5 rounded-full tracking-wide hover:bg-brand-accent-light transition-colors duration-200"
             >
-              Get A Free Quote
+              {clientConfig.business.ctaLabel}
             </a>
             <button
               className="md:hidden text-brand-primary-text"
@@ -175,12 +174,12 @@ export default function Navbar() {
               </motion.a>
 
               <motion.a
-                href="#estimate"
+                href="/contact"
                 variants={itemVariants}
-                onClick={(e) => { e.preventDefault(); handleNavClick("#estimate"); }}
+                onClick={() => setMobileOpen(false)}
                 className="w-full max-w-xs rounded-full bg-brand-accent px-8 py-4 font-dmsans text-sm font-semibold tracking-wide text-brand-accent-text hover:bg-brand-accent-light transition-colors duration-200 text-center"
               >
-                Get A Free Quote
+                {clientConfig.business.ctaLabel}
               </motion.a>
             </motion.nav>
           </motion.div>
