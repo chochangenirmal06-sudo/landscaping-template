@@ -2,45 +2,45 @@ export const clientConfig = {
 
   // ─── BUSINESS INFO ───────────────────────────
   business: {
-    name: "GreenEdge",
-    fullName: "GreenEdge Landscaping",
-    tagline: "Austin's Most Trusted Landscaping Company.",
-    heroLine1: "Austin's Most Trusted",
+    name: "North Shore",
+    fullName: "North Shore Landscaping",
+    tagline: "Newcastle's Most Trusted Landscaping Company.",
+    heroLine1: "Newcastle's Premier Artisanal",
     heroLine2: "Landscaping Company.",
-    heroSubtitle: "From first mow to full transformation — we take care of your yard like it's our own.",
-    city: "Austin",
-    state: "TX",
-    serviceArea: "Serving Greater Austin, TX",
-    address: "Austin, Texas",
-    phone: "(512) 555-0190",
-    phoneHref: "tel:5125550190",
-    email: "hello@greenedge.com",
+    heroSubtitle: "Transforming outdoor spaces across Newcastle and the North East with expert garden design, professional paving, and bespoke styling tailored completely to your lifestyle.",
+    city: "Newcastle upon Tyne",
+    state: "UK",
+    serviceArea: "Serving Newcastle upon Tyne and the North East",
+    address: "Newcastle upon Tyne, United Kingdom",
+    phone: "+44 7590 579997",
+    phoneHref: "tel:+447590579997",
+    email: "tom@northshorelandscaping.co.uk",
     contactFormEmail: "npermanent67@gmail.com",
-    hours: "Mon–Sat: 7AM – 6PM",
-    established: "2009",
+    hours: "Mon–Fri: 8AM – 5PM",
+    established: "2020",
     ctaLabel: "Get a Free Quote",
     trustBadges: [
-      "Licensed & Insured",
-      "Free Estimates",
       "5-Star Rated Service",
       "Locally Owned & Operated",
+      "Free Estimates",
+      "Satisfaction Guaranteed",
     ],
     stats: {
-      projectsCompleted: "500+",
-      rating: "4.9★",
-      yearsExperience: "15+",
+      projectsCompleted: "150+",
+      rating: "5.0★",
+      yearsExperience: "6+",
     },
     // Google Maps embed URL for the CTA section.
     // Generate at: https://www.google.com/maps/embed → Share → Embed a map → copy src URL
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110844.72736442!2d-97.8394!3d30.2672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b592d8d2ac6b%3A0x2dc4a0e2035cd8b2!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d146747.0145657475!2d-1.74836655!3d54.9961019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487e716bc5cd057d%3A0xc0095ab70b80baee!2sNorth%20Shore%20Landscaping!5e0!3m2!1sen!2suk!4v1717326000000!5m2!1sen!2suk",
   },
 
   // ─── WHY CHOOSE US ───────────────────────────
   // Headline for the "Why Choose Us" section.
   // The four cards below it are generic and do not need editing.
   whyChooseUs: {
-    headline: "Austin's Go-To Landscaping Pros",
-    subtext: "With over 15 years of experience and a hands-on approach, we deliver trusted, top-quality landscaping tailored to your needs.",
+    headline: "Newcastle's Choice for Precision Landscaping",
+    subtext: "With over 6 years of experience across Newcastle and the North East, our passionate team works with precision and premium materials to design outdoor features built to stand the test of time.",
   },
 
   // ─── BRAND ───────────────────────────────────
@@ -56,44 +56,43 @@ export const clientConfig = {
   // secondary: supporting tone for section labels and subtle italic accents.
   // textMuted: secondary / helper text throughout.
   colors: {
-    primary:     "#1A2E1A",  // dark backgrounds — navbar, footer, dark sections
-    primaryText: "#F5F0E8",  // text / icons on primary-colored backgrounds
-    secondary:   "#4A7C59",  // section labels, supporting tone
-    accent:      "#C89B3E",  // decorative lines, icons, quote marks
-    accentDark:  "#B8902A",  // CTA buttons
-    accentLight: "#E8C06A",  // button hover state
-    accentText:  "#1A2E1A",  // text on accent-colored buttons
-    bg:          "#F5F0E8",  // light section backgrounds
-    bgText:      "#1A2E1A",  // body text on light backgrounds
-    textMuted:   "#6B7280",  // secondary / muted text
+    primary:     "#1E233B",  // deep navy background from the logo
+    primaryText: "#FFFFFF",  // crisp white text on dark navy
+    secondary:   "#D97706",  // supporting orange accents
+    accent:      "#F59E0B",  // vibrant amber/orange matching the logo graphics
+    accentDark:  "#D97706",  // CTA buttons
+    accentLight: "#FBBF24",  // button hover state
+    accentText:  "#1E233B",  // text on accent-colored buttons
+    bg:          "#F8FAFC",  // off-white slate section backgrounds
+    bgText:      "#1E233B",  // body text on light backgrounds
+    textMuted:   "#64748B",  // secondary / muted text
   },
 
   // ─── SOCIAL ──────────────────────────────────
   social: {
-    instagram: "#",
-    facebook: "#",
+    instagram: "https://www.instagram.com/northshorelandscapingne/",
+    facebook: "https://www.facebook.com/northshorelandscapingNE/",
     twitter: "#",
   },
 
   // ─── ABOUT ───────────────────────────────────
   about: {
-    headline: "A landscaping firm rooted in Austin, TX.",
+    headline: "A landscaping firm rooted in Newcastle upon Tyne.",
     story: [
-      "GreenEdge was founded in 2009 by a team of Austin natives who believed that your outdoor space deserves the same care and attention as the inside of your home. We started with a single truck and a belief that showing up on time and doing excellent work was enough. It still is.",
-      "Today we serve 500+ homeowners across Greater Austin — from West Lake Hills to Cedar Park — handling everything from weekly lawn care to full landscape design and hardscaping.",
+      "North Shore Landscaping was founded in 2020 by a team of dedicated trade professionals who believed that outdoor spaces should be natural extensions of the home. Operating across Newcastle and the North East, we launched with a vision to combine reliable structural work with refined finish-level attention to detail.",
+      "Today we serve residential clients throughout the region — from Jesmond and Gosforth to coastal Tynemouth — delivering premium transformations including porcelain paving, custom joinery, timber framing, and modern garden fencing.",
       "We are not a franchise. We are not a call center. We are your neighbors — and we treat your yard like it's our own.",
     ],
-    founderName: "James Mitchell",
-    founderTitle: "Founder & Lead Designer",
-    founderImage: "/images/owner.png",
+    founderName: "Tom",
+    founderTitle: "Founder & Lead Artisan",
+    founderImage: null,
     founderBio: [
-      "James started GreenEdge after spending a decade working for corporate landscaping firms where speed always won over quality. He wanted to build something different — a company where every client felt like the only client.",
-      "A UT Austin graduate and lifelong Austinite, James leads every major project personally.",
+      "Jack established North Shore Landscaping to focus exclusively on highly tailored garden installations where material quality and meticulous trade craftsmanship are prioritized over shortcuts.",
+      "A proud North East local with extensive regional experience, Jack oversees every core design and build phase from planning to the final layout.",
     ],
     founderCredentials: [
-      "Licensed Irrigator — TX LI #7834",
-      "TCIA Member",
-      "City of Austin Master Native Certified",
+      "City & Guilds Certified Landscape Carpentry // PLACEHOLDER — verify",
+      "Premium Porcelain Installation Specialist // PLACEHOLDER — verify",
     ],
     principles: [
       { title: "We show up.", description: "On time, every time. Reliability is how trust gets built." },
@@ -120,16 +119,16 @@ export const clientConfig = {
   //   priceLabel: "for standard residential",
   //   badge: "CLEANING",
   //   image: "/images/pressure-washing.jpg",  // optional — omit to use a default
-  //   features: ["Driveways & Walkways", "Patios & Decks", "Fences & Siding"],
+  //   features: ["Driveways & Walkways", "Patios & Decks", "Fences & Fences"],
   // },
   services: [
     {
-      active: true,
+      active: false,
       slug: "lawn-care-maintenance",
       name: "Lawn Care & Maintenance",
       tagline: "A lawn worth coming home to.",
       description: "Weekly mowing, edging, fertilization and weed control that keeps your lawn immaculate year-round.",
-      price: "$85",
+      price: "£85",
       priceLabel: "for standard residential lawn",
       badge: "MAINTENANCE",
       image: "/images/Lawn%20Care%20%26%20Maintenance1.png",
@@ -141,19 +140,19 @@ export const clientConfig = {
       name: "Landscape Design",
       tagline: "Your vision. Our expertise.",
       description: "Custom designs crafted to complement your home's architecture and personal vision for outdoor living.",
-      price: "$499",
+      price: "£499",
       priceLabel: "for initial design consultation",
       badge: "DESIGN",
       image: "/images/Landscape%20Design1.png",
       features: ["Initial Consultation", "Digital Landscape Plans", "Residential & Commercial"],
     },
     {
-      active: true,
+      active: false,
       slug: "irrigation-systems",
       name: "Irrigation Systems",
       tagline: "Smart water. Healthy lawn.",
       description: "Smart sprinkler installation, precision repairs and seasonal optimization that saves water and money.",
-      price: "$299",
+      price: "£299",
       priceLabel: "for system inspection & tune-up",
       badge: "IRRIGATION",
       image: "/images/Irrigation%20Systems1.png",
@@ -165,11 +164,11 @@ export const clientConfig = {
       name: "Hardscaping & Patios",
       tagline: "Outdoor spaces built to last.",
       description: "Patios, walkways, retaining walls and outdoor kitchens built to last and designed to impress.",
-      price: "$1,500",
-      priceLabel: "for standard patio installation",
+      price: "£2,500",
+      priceLabel: "for premium stone installation",
       badge: "HARDSCAPE",
       image: "/images/Hardscaping%20%26%20Patios1.png",
-      features: ["Patios & Walkways", "Retaining Walls", "Outdoor Kitchens"],
+      features: ["Premium Porcelain Paving", "Brick Work & Retaining Walls", "Bespoke Pathways"],
     },
     {
       active: true,
@@ -177,31 +176,31 @@ export const clientConfig = {
       name: "Seasonal Cleanup",
       tagline: "Spring-ready. Fall-perfect. Always.",
       description: "Spring prep, fall leaf removal and winter readiness so your yard looks great in every season.",
-      price: "$250",
+      price: "£250",
       priceLabel: "for standard residential cleanup",
       badge: "SEASONAL",
       image: "/images/Seasonal%20Cleanup1.png",
       features: ["Spring & Fall Cleanup", "Leaf Removal", "Winter Prep"],
     },
     {
-      active: true,
+      active: false,
       slug: "tree-shrub-care",
       name: "Tree & Shrub Care",
       tagline: "Healthy trees. Beautiful property.",
       description: "Expert trimming, shaping, health treatments and safe removal by certified arborists.",
-      price: "$150",
+      price: "£150",
       priceLabel: "for standard trim & shape",
       badge: "TREE CARE",
       image: "/images/Tree%20%26%20Shrub%20Care1.png",
-      features: ["Crown Trimming & Shaping", "Health Treatments", "Safe Removal"],
+      features: ["Crown Trimming & Shaping", "Hedge Management", "Safe Removal"],
     },
     {
-      active: true,
+      active: false,
       slug: "mulching-soil-health",
       name: "Mulching & Soil Health",
       tagline: "Feed your soil. Grow everything.",
       description: "Premium mulch installation and soil amendment that retains moisture and feeds your plants naturally.",
-      price: "$120",
+      price: "£120",
       priceLabel: "for standard mulch installation",
       badge: "MULCHING",
       image: "/images/Mulching%20%26%20Soil%20Health1.png",
@@ -213,11 +212,35 @@ export const clientConfig = {
       name: "Garden Bed Design",
       tagline: "Color, texture, and life — year round.",
       description: "Custom seasonal and perennial garden beds designed for the local climate — colorful and low-maintenance.",
-      price: "$350",
+      price: "£350",
       priceLabel: "for initial garden bed design",
       badge: "GARDEN",
       image: "/images/Garden%20Bed%20Design1.png",
       features: ["Seasonal Planting", "Perennial Beds", "Native Plant Selection"],
+    },
+    {
+      active: true,
+      slug: "porcelain-paving",
+      name: "Porcelain & Natural Stone Paving",
+      tagline: "Ultra-modern, low maintenance paving solutions.",
+      description: "Precision-laid porcelain tiling and premium natural stone patios constructed with complete sub-base integrity.",
+      price: "£3,500", // PLACEHOLDER — verify
+      priceLabel: "starting cost for custom sizing",
+      badge: "PAVEMENTS",
+      image: "/images/paving.png",
+      features: ["Laser-Leveled Alignment", "Premium Grouting & Jointing", "Full Dynamic Sub-base Construction"],
+    },
+    {
+      active: true,
+      slug: "fencing-slatted-panels",
+      name: "Bespoke Fencing & Joinery",
+      tagline: "Contemporary boundary lines and timber work.",
+      description: "Custom horizontal slatted cedar/larch screens, structural timber frameworks, and secure garden gates.",
+      price: "£1,200", // PLACEHOLDER — verify
+      priceLabel: "starting cost for panel runs",
+      badge: "JOINERY",
+      image: "/images/fencing.jpeg",
+      features: ["Modern Slatted Screen Designs", "Heavy Duty Security Gates", "Treated Structural Timbers"],
     },
   ],
 
@@ -229,15 +252,15 @@ export const clientConfig = {
   // category: shown as a badge on the homepage portfolio cards
   // label:    shown as a title on the featured (first) card only
   gallery: [
-    { src: "/images/portfolio1.png",                       category: "Hardscape",   label: "Custom Patio · Westlake" },
-    { src: "/images/portfolio2.png",                       category: "Renovation" },
-    { src: "/images/portfolio3.png",                       category: "Plant Design" },
-    { src: "/images/portfolio4.png",                       category: "Irrigation" },
-    { src: "/images/hardscaping.png",                      category: "Hardscape" },
-    { src: "/images/landscape-design.png",                 category: "Design" },
-    { src: "/images/Lawn%20Care%20%26%20Maintenance1.png", category: "Maintenance" },
-    { src: "/images/Landscape%20Design1.png",              category: "Design" },
-    { src: "/images/Irrigation%20Systems1.png",            category: "Irrigation" },
+    { src: "/images/gallery1.jpg", category: "Hardscape" },
+    { src: "/images/gallery2.jpg", category: "Joinery" },
+    { src: "/images/gallery3.jpg", category: "Design" },
+    { src: "/images/gallery4.jpg", category: "Hardscape" },
+    { src: "/images/gallery5.jpg", category: "Joinery" },
+    { src: "/images/gallery6.jpg", category: "Garden" },
+    { src: "/images/gallery7.jpg", category: "Hardscape" },
+    { src: "/images/gallery8.jpg", category: "Design" },
+    { src: "/images/gallery9.jpg", category: "Garden" },
   ],
 
   // ─── TESTIMONIALS ────────────────────────────
@@ -246,24 +269,24 @@ export const clientConfig = {
   testimonials: [
     {
       active: true,
-      name: "Sarah M.",
-      location: "West Lake Hills, TX",
+      name: "David T.",
+      location: "Newcastle upon Tyne",
       rating: 5,
-      text: "GreenEdge completely transformed our backyard. The attention to detail was incredible — they treated our yard like it was their own home.",
+      text: "North shore landscaping came out and completed a total overhaul of our garden, removing existing lawn and flagstones and installing an amazing new porcelain tile patio with custom steps and composite deck area. Jack and the team are hard working, extremely tidy and their attention to detail is fantastic. The finish is absolutely exceptional.",
     },
     {
       active: true,
-      name: "David R.",
-      location: "Cedar Park, TX",
+      name: "Rebecca L.",
+      location: "Jesmond",
       rating: 5,
-      text: "We've used three landscaping companies over the years. GreenEdge is the only one we've kept. Reliable, communicative, and the quality shows.",
+      text: "Highly recommend Jack and his team. They replaced our old rotted fencing with stunning modern slatted fencing and built a custom matching timber planter. They turned up exactly when planned, gave clear communication throughout, and left everything pristine every single day. A flawless job.",
     },
     {
       active: true,
-      name: "Jennifer K.",
-      location: "Round Rock, TX",
+      name: "Mark P.",
+      location: "Tynemouth",
       rating: 5,
-      text: "From the initial consultation to the final walkthrough, the process was seamless. Our front yard has never looked better.",
+      text: "Brilliant company. Jack helped design a layout that made the best possible use of our awkward sloping garden. The sandstone walling and precise patio levels are beautiful. Fair price for top-tier craftsmanship.",
     },
   ],
 
@@ -279,15 +302,15 @@ export const clientConfig = {
     },
     {
       question: "Do you offer recurring maintenance plans?",
-      answer: "Yes. We offer weekly, bi-weekly and monthly maintenance plans for residential and commercial properties.",
+      answer: "No. We specialize exclusively in full garden renovations, luxury paving, architectural joinery, and landscape design rather than routine mowing contracts.",
     },
     {
       question: "What areas do you serve?",
-      answer: "We serve Greater Austin including West Lake Hills, Cedar Park, Round Rock, Pflugerville, and surrounding areas.",
+      answer: "We serve Newcastle upon Tyne and the wider North East region, including Jesmond, Gosforth, Tynemouth, Ponteland, Gateshead, and surrounding areas.",
     },
     {
       question: "How far in advance should I book?",
-      answer: "For maintenance, we can usually start within a week. For design and installation projects, 2–3 weeks lead time is recommended.",
+      answer: "Due to high seasonal demand for major structural landscaping projects, we generally recommend booking your design consult 4–6 weeks ahead of your intended start window.",
     },
   ],
 

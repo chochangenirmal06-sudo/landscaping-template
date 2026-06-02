@@ -115,12 +115,37 @@ export default function AboutPage() {
               className="flex flex-col items-center"
             >
               <div className="relative w-full max-w-xs overflow-hidden" style={{ aspectRatio: "3 / 4", borderRadius: "16px" }}>
-                <Image
-                  src={about.founderImage}
-                  alt={`${about.founderName} — ${about.founderTitle}, ${business.fullName}`}
-                  fill loading="eager" sizes="50vw"
-                  className="object-cover"
-                />
+                {about.founderImage ? (
+                  <Image
+                    src={about.founderImage}
+                    alt={`${about.founderName} — ${about.founderTitle}, ${business.fullName}`}
+                    fill loading="eager" sizes="50vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <div
+                    className="w-full h-full flex flex-col items-center justify-center gap-3"
+                    style={{ background: "var(--color-primary)" }}
+                  >
+                    <div
+                      className="flex items-center justify-center rounded-full font-playfair font-normal"
+                      style={{
+                        width: "80px", height: "80px",
+                        background: "rgb(var(--color-accent-rgb) / 0.15)",
+                        border: "2px solid rgb(var(--color-accent-rgb) / 0.35)",
+                        fontSize: "2rem", color: "var(--color-accent)",
+                      }}
+                    >
+                      {about.founderName.charAt(0)}
+                    </div>
+                    <p
+                      className="font-dmsans text-[11px] tracking-[0.22em] uppercase text-center px-4"
+                      style={{ color: "rgb(var(--color-accent-rgb) / 0.55)" }}
+                    >
+                      Photo coming soon
+                    </p>
+                  </div>
+                )}
               </div>
               <div className="mt-6 text-center">
                 <p className="font-playfair text-xl" style={{ color: "var(--color-bg-text)" }}>

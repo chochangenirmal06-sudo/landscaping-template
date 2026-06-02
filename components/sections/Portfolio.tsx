@@ -60,25 +60,12 @@ export default function Portfolio() {
               <div className="md:col-span-3 relative rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto">
                 <Image
                   src={featured.src}
-                  alt={featured.label ?? featured.category ?? "Featured project"}
+                  alt={featured.category ?? "Featured project"}
                   fill
                   loading="eager"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 60vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  {featured.category && (
-                    <p className="font-dmsans text-[10px] tracking-[0.25em] uppercase text-white/60 mb-1.5">
-                      {featured.category}
-                    </p>
-                  )}
-                  {featured.label && (
-                    <p className="font-playfair text-2xl text-white leading-snug">
-                      {featured.label}
-                    </p>
-                  )}
-                </div>
               </div>
             )}
 
@@ -94,12 +81,6 @@ export default function Portfolio() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
                     className="object-cover hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  {img.category && (
-                    <span className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full font-dmsans">
-                      {img.category}
-                    </span>
-                  )}
                 </div>
               ))}
             </div>
@@ -120,12 +101,6 @@ export default function Portfolio() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                {img.category && (
-                  <span className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full font-dmsans">
-                    {img.category}
-                  </span>
-                )}
               </div>
             ))}
           </div>
