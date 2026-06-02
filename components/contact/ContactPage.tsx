@@ -312,12 +312,9 @@ export default function ContactPage() {
                   <label style={FIELD_LABEL}>Primary Service Needed *</label>
                   <select name="service" value={form.service} onChange={handleChange} onFocus={() => setFocused('service')} onBlur={() => setFocused(null)} style={selectStyle('service', !!form.service)}>
                     <option value="">Select a service...</option>
-                    <option value="landscape-design">Landscape Design</option>
-                    <option value="hardscaping">Hardscaping &amp; Patios</option>
-                    <option value="porcelain-paving">Porcelain &amp; Natural Stone Paving</option>
-                    <option value="fencing-joinery">Bespoke Fencing &amp; Joinery</option>
-                    <option value="garden-beds">Garden Bed Design</option>
-                    <option value="seasonal-cleanup">Seasonal Cleanup</option>
+                    {clientConfig.services.filter(s => s.active).map(s => (
+                      <option key={s.slug} value={s.slug}>{s.name}</option>
+                    ))}
                     <option value="not-sure">Not Sure — Help Me Decide</option>
                   </select>
                   {errors.service && <p style={ERROR_MSG}>{errors.service}</p>}
@@ -346,7 +343,7 @@ export default function ContactPage() {
                   <label style={FIELD_LABEL}>Estimated Budget *</label>
                   <select name="budget" value={form.budget} onChange={handleChange} onFocus={() => setFocused('budget')} onBlur={() => setFocused(null)} style={selectStyle('budget', !!form.budget)}>
                     <option value="" disabled style={{ color: '#9CA3AF' }}>Select budget range...</option>
-                    {['Under £500', '£500–£2,000', '£2,000–£5,000', '£5,000–£10,000', '£10,000–£25,000', '£25,000+', 'Not sure yet'].map(s => <option key={s} value={s}>{s}</option>)}
+                    {['Under $1,000', '$1,000–$3,000', '$3,000–$7,500', '$7,500–$15,000', '$15,000–$30,000', '$30,000+', 'Not sure yet'].map(s => <option key={s} value={s}>{s}</option>)}
                   </select>
                   {errors.budget && <p style={ERROR_MSG}>{errors.budget}</p>}
                 </div>
