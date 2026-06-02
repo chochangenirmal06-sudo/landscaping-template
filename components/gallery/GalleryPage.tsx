@@ -101,7 +101,7 @@ export default function GalleryPage() {
             >
               <Image
                 src={item.src}
-                alt={item.label ?? item.category ?? `Gallery photo ${index + 1}`}
+                alt={item.category ?? `Gallery photo ${index + 1}`}
                 fill
                 loading="eager"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -187,7 +187,7 @@ export default function GalleryPage() {
             {/* Image */}
             <Image
               src={activeSrc}
-              alt={lightboxIndex !== null ? (images[lightboxIndex]?.label ?? images[lightboxIndex]?.category ?? `Gallery photo ${lightboxIndex + 1}`) : ""}
+              alt={lightboxIndex !== null ? (images[lightboxIndex]?.category ?? `Gallery photo ${lightboxIndex + 1}`) : ""}
               width={1200}
               height={900}
               style={{
