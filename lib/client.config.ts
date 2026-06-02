@@ -104,7 +104,24 @@ export const clientConfig = {
   },
 
   // ─── SERVICES ────────────────────────────────
-  // Set active: false to hide across entire site
+  // Set active: false to hide any service across the entire site.
+  // To add a custom service not in the list below, append a new entry.
+  // Every active entry automatically gets its own page at /services/[slug].
+  // The image field is optional — omit it and a default service image is used.
+  //
+  // Template for a custom service:
+  // {
+  //   active: true,
+  //   slug: "pressure-washing",           // kebab-case, used in the URL
+  //   name: "Pressure Washing",
+  //   tagline: "Spotless surfaces. Instantly.",
+  //   description: "Professional pressure washing for driveways, patios, fences, and siding.",
+  //   price: "$150",
+  //   priceLabel: "for standard residential",
+  //   badge: "CLEANING",
+  //   image: "/images/pressure-washing.jpg",  // optional — omit to use a default
+  //   features: ["Driveways & Walkways", "Patios & Decks", "Fences & Siding"],
+  // },
   services: [
     {
       active: true,
@@ -205,20 +222,22 @@ export const clientConfig = {
   ],
 
   // ─── GALLERY ─────────────────────────────────
-  // Add up to 9 images downloaded from their
-  // Facebook or Instagram. Name them gallery1.jpg
-  // through gallery9.jpg and place in public/images/
-  // For demo, remove filters — just a clean grid.
+  // These 9 images feed BOTH the Our Work page (full masonry grid)
+  // AND the Portfolio section on the homepage (first 6 shown).
+  // Download images from their Facebook/Instagram, place in public/images/,
+  // and update the src paths below.
+  // category: shown as a badge on the homepage portfolio cards
+  // label:    shown as a title on the featured (first) card only
   gallery: [
-    "/images/gallery1.jpg",
-    "/images/gallery2.jpg",
-    "/images/gallery3.jpg",
-    "/images/gallery4.jpg",
-    "/images/gallery5.jpg",
-    "/images/gallery6.jpg",
-    "/images/gallery7.jpg",
-    "/images/gallery8.jpg",
-    "/images/gallery9.jpg",
+    { src: "/images/portfolio1.png",                       category: "Hardscape",   label: "Custom Patio · Westlake" },
+    { src: "/images/portfolio2.png",                       category: "Renovation" },
+    { src: "/images/portfolio3.png",                       category: "Plant Design" },
+    { src: "/images/portfolio4.png",                       category: "Irrigation" },
+    { src: "/images/hardscaping.png",                      category: "Hardscape" },
+    { src: "/images/landscape-design.png",                 category: "Design" },
+    { src: "/images/Lawn%20Care%20%26%20Maintenance1.png", category: "Maintenance" },
+    { src: "/images/Landscape%20Design1.png",              category: "Design" },
+    { src: "/images/Irrigation%20Systems1.png",            category: "Irrigation" },
   ],
 
   // ─── TESTIMONIALS ────────────────────────────

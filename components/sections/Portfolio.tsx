@@ -4,13 +4,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { clientConfig } from "@/lib/client.config";
 
-const BOTTOM_ROW = [
-  { src: "/images/portfolio4.png", category: "Irrigation" },
-  { src: "/images/hardscaping.png", category: "Hardscape" },
-  { src: "/images/landscape-design.png", category: "Design" },
-];
-
 export default function Portfolio() {
+  const gallery = clientConfig.gallery;
+  const featured = gallery[0];
+  const stacked  = gallery.slice(1, 3);
+  const bottom   = gallery.slice(3, 6);
+
   return (
     <section id="our-work" className="relative bg-brand-bg py-[100px] px-4">
       <div className="max-w-7xl mx-auto">
@@ -38,7 +37,7 @@ export default function Portfolio() {
           </div>
 
           <a
-            href="#"
+            href="/gallery"
             className="font-dmsans text-sm font-semibold tracking-widest uppercase text-brand-bg-text hover:text-brand-accent transition-colors md:mb-2"
           >
             View All Projects →
@@ -57,79 +56,76 @@ export default function Portfolio() {
           <div className="flex flex-col md:grid md:grid-cols-5 gap-3 md:h-[540px]">
 
             {/* Featured left */}
-            <div className="md:col-span-3 relative rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto">
-              <Image
-                src="/images/portfolio1.png"
-                alt="Custom Patio Westlake"
-                fill
-                loading="eager"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute bottom-6 left-6">
-                <p className="font-dmsans text-[10px] tracking-[0.25em] uppercase text-white/60 mb-1.5">
-                  Hardscape
-                </p>
-                <p className="font-playfair text-2xl text-white leading-snug">
-                  Custom Patio · Westlake
-                </p>
+            {featured && (
+              <div className="md:col-span-3 relative rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto">
+                <Image
+                  src={featured.src}
+                  alt={featured.label ?? featured.category ?? "Featured project"}
+                  fill
+                  loading="eager"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 60vw"
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute bottom-6 left-6">
+                  {featured.category && (
+                    <p className="font-dmsans text-[10px] tracking-[0.25em] uppercase text-white/60 mb-1.5">
+                      {featured.category}
+                    </p>
+                  )}
+                  {featured.label && (
+                    <p className="font-playfair text-2xl text-white leading-snug">
+                      {featured.label}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Right stacked */}
             <div className="md:col-span-2 grid grid-cols-2 md:flex md:flex-col gap-3">
-              <div className="relative rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto md:flex-1">
-                <Image
-                  src="/images/portfolio2.png"
-                  alt="Renovation project"
-                  fill
-                  loading="eager"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full font-dmsans">
-                  Renovation
-                </span>
-              </div>
-
-              <div className="relative rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto md:flex-1">
-                <Image
-                  src="/images/portfolio3.png"
-                  alt="Plant design project"
-                  fill
-                  loading="eager"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full font-dmsans">
-                  Plant Design
-                </span>
-              </div>
+              {stacked.map((img) => (
+                <div key={img.src} className="relative rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto md:flex-1">
+                  <Image
+                    src={img.src}
+                    alt={img.category ?? "Project"}
+                    fill
+                    loading="eager"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                    className="object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  {img.category && (
+                    <span className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full font-dmsans">
+                      {img.category}
+                    </span>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Bottom row: 3 equal */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">
-            {BOTTOM_ROW.map((img, i) => (
+            {bottom.map((img, i) => (
               <div
                 key={img.src}
                 className={`relative rounded-xl overflow-hidden aspect-[4/3]${i === 2 ? " col-span-2 md:col-span-1" : ""}`}
               >
                 <Image
                   src={img.src}
-                  alt={img.category}
+                  alt={img.category ?? "Project"}
                   fill
                   loading="eager"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full font-dmsans">
-                  {img.category}
-                </span>
+                {img.category && (
+                  <span className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full font-dmsans">
+                    {img.category}
+                  </span>
+                )}
               </div>
             ))}
           </div>

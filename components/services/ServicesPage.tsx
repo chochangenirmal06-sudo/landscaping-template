@@ -37,7 +37,7 @@ export default function ServicesPage() {
   const ctaInView  = useInView(ctaRef,  { once: true, margin: "-80px" });
 
   return (
-    <div className="pt-[148px]" style={{ background: "var(--color-bg)" }}>
+    <div className="pt-[160px]" style={{ background: "var(--color-bg)" }}>
 
       {/* SECTION 1 — PAGE HEADER */}
       <div className="text-center max-w-3xl mx-auto px-8 pb-16">

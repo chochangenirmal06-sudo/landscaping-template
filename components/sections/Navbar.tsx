@@ -66,9 +66,9 @@ export default function Navbar() {
               <Image
                 src={clientConfig.logo}
                 alt={clientConfig.business.name}
-                width={324}
-                height={108}
-                className="h-[108px] w-auto object-contain"
+                width={480}
+                height={156}
+                className="h-[132px] w-auto object-contain"
                 priority
               />
             ) : (

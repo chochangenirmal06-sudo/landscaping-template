@@ -23,6 +23,7 @@ export default function GalleryPage() {
     [images.length]
   );
 
+
   useEffect(() => {
     if (lightboxIndex === null) return;
     const onKey = (e: KeyboardEvent) => {
@@ -39,14 +40,14 @@ export default function GalleryPage() {
     return () => { document.body.style.overflow = ""; };
   }, [lightboxIndex]);
 
-  const activeSrc = lightboxIndex !== null ? (images[lightboxIndex] ?? null) : null;
+  const activeSrc = lightboxIndex !== null ? (images[lightboxIndex]?.src ?? null) : null;
 
   return (
     <>
       {/* ═══════════════════════════════════════════════════
           HERO STRIP
       ═══════════════════════════════════════════════════ */}
-      <section style={{ background: "var(--color-primary)", padding: "148px 0 60px" }}>
+      <section style={{ background: "var(--color-primary)", padding: "160px 0 60px" }}>
         <div className="text-center px-5">
 
           <p
@@ -91,16 +92,16 @@ export default function GalleryPage() {
           className="columns-1 sm:columns-2 lg:columns-3 mx-auto px-5 md:px-10 lg:px-[60px]"
           style={{ maxWidth: "1400px", columnGap: "16px" }}
         >
-          {images.map((src, index) => (
+          {images.map((item, index) => (
             <div
-              key={`${src}-${index}`}
+              key={`${item.src}-${index}`}
               className="group relative break-inside-avoid overflow-hidden rounded-2xl cursor-pointer"
               style={{ marginBottom: "16px", height: `${HEIGHTS[index % HEIGHTS.length]}px` }}
               onClick={() => setLightboxIndex(index)}
             >
               <Image
-                src={src}
-                alt={`Gallery photo ${index + 1}`}
+                src={item.src}
+                alt={item.label ?? item.category ?? `Gallery photo ${index + 1}`}
                 fill
                 loading="eager"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -186,7 +187,7 @@ export default function GalleryPage() {
             {/* Image */}
             <Image
               src={activeSrc}
-              alt={`Gallery photo ${lightboxIndex !== null ? lightboxIndex + 1 : ""}`}
+              alt={lightboxIndex !== null ? (images[lightboxIndex]?.label ?? images[lightboxIndex]?.category ?? `Gallery photo ${lightboxIndex + 1}`) : ""}
               width={1200}
               height={900}
               style={{

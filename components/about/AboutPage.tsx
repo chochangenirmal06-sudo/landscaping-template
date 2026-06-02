@@ -32,7 +32,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── OUR STORY ─────────────────────────────────────────────── */}
-      <section className="pt-[148px] pb-24 md:pb-32 overflow-hidden" style={{ background: "var(--color-bg)" }}>
+      <section className="pt-[160px] pb-24 md:pb-32 overflow-hidden" style={{ background: "var(--color-bg)" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-16 lg:gap-24 items-center">
 
