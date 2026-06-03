@@ -68,7 +68,7 @@ export default function Navbar() {
                 alt={clientConfig.business.name}
                 width={480}
                 height={156}
-                className="h-[66px] w-auto object-contain"
+                className="h-[33px] w-auto object-contain"
                 priority
               />
             ) : (
