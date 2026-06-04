@@ -4,13 +4,18 @@ import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { clientConfig } from "@/lib/client.config";
 
-const BADGES = [
-  "No-Obligation Estimate",
-  "Licensed & Insured",
-  "Response Within 2 Hours",
-];
+const biz = clientConfig.business as typeof clientConfig.business & {
+  ctaBadges?: string[];
+};
+const ctaConfig = (clientConfig as typeof clientConfig & {
+  cta?: { eyebrow?: string; headlineLines?: string[]; subtext?: string };
+}).cta ?? {};
 
-const MAP_URL = clientConfig.business.mapEmbedUrl;
+const BADGES     = biz.ctaBadges ?? ["No-Obligation Estimate", "Licensed & Insured", "Response Within 2 Hours"];
+const EYEBROW    = ctaConfig.eyebrow ?? "Get Started";
+const LINES      = ctaConfig.headlineLines ?? ["Your dream yard", "is one call", "away."];
+const SUBTEXT    = ctaConfig.subtext ?? "No pressure. No surprises. Just a yard you'll love coming home to.";
+const MAP_URL    = clientConfig.business.mapEmbedUrl;
 
 export default function CTA() {
   return (
@@ -28,22 +33,21 @@ export default function CTA() {
           {/* Left — text content */}
           <div>
             <p className="font-dmsans text-xs tracking-[0.3em] uppercase mb-6" style={{ color: "var(--color-accent-dark)" }}>
-              — Get Started —
+              — {EYEBROW} —
             </p>
 
             <h2 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-normal leading-tight" style={{ color: "var(--color-bg-text)" }}>
-              Your dream yard
-              <br />
-              is one call
-              <br />
-              <em className="italic" style={{ color: "var(--color-accent-dark)" }}>away.</em>
+              {LINES.slice(0, -1).map((line, i) => (
+                <span key={i}>{line}<br /></span>
+              ))}
+              <em className="italic" style={{ color: "var(--color-accent-dark)" }}>{LINES[LINES.length - 1]}</em>
             </h2>
 
             <p
               className="font-sans font-light text-lg leading-relaxed max-w-md mt-6 mb-8"
               style={{ color: "var(--color-text-muted)" }}
             >
-              No pressure. No surprises. Just a yard you&apos;ll love coming home to.
+              {SUBTEXT}
             </p>
 
             {/* Buttons */}

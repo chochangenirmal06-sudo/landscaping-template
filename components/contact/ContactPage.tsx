@@ -17,8 +17,7 @@ const CONTACT_CARDS = [
 
 type FormData = {
   fullName: string; email: string; phone: string; streetAddress: string;
-  service: string; spaceSize: string; timeframe: string; budget: string;
-  issues: string; additionalDetails: string;
+  service: string; timeframe: string; budget: string; issues: string;
 };
 type ScalarField = keyof FormData;
 type FormErrors = Partial<Record<ScalarField, string>>;
@@ -41,8 +40,7 @@ export default function ContactPage() {
 
   const [form, setForm] = useState<FormData>({
     fullName: '', email: '', phone: '', streetAddress: '',
-    service: '', spaceSize: '', timeframe: '', budget: '',
-    issues: '', additionalDetails: '',
+    service: '', timeframe: '', budget: '', issues: '',
   });
 
   const fieldStyle = (name: string): React.CSSProperties => ({
@@ -101,7 +99,6 @@ export default function ContactPage() {
     else if (form.phone.replace(/\D/g, '').length < 10) e.phone = 'Enter a 10-digit phone number.';
     if (!form.streetAddress.trim())  e.streetAddress = 'Street address is required.';
     if (!form.service)               e.service       = 'Please select a service.';
-    if (!form.spaceSize)             e.spaceSize     = 'Please select a size.';
     if (!form.timeframe)             e.timeframe     = 'Please select a timeframe.';
     if (!form.budget)                e.budget        = 'Please select a budget.';
     return e;
@@ -123,8 +120,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           fullName: form.fullName, email: form.email, phone: form.phone,
           streetAddress: form.streetAddress, serviceNeeded: form.service,
-          spaceToLandscape: form.spaceSize, timeframe: form.timeframe,
-          budget: form.budget, issues: form.issues, additionalDetails: form.additionalDetails,
+          timeframe: form.timeframe, budget: form.budget, issues: form.issues,
         }),
       });
       if (response.ok) {
@@ -320,23 +316,13 @@ export default function ContactPage() {
                   {errors.service && <p style={ERROR_MSG}>{errors.service}</p>}
                 </div>
 
-                <div className="field-row-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
-                  <div>
-                    <label style={FIELD_LABEL}>Space to Landscape *</label>
-                    <select name="spaceSize" value={form.spaceSize} onChange={handleChange} onFocus={() => setFocused('spaceSize')} onBlur={() => setFocused(null)} style={selectStyle('spaceSize', !!form.spaceSize)}>
-                      <option value="" disabled style={{ color: '#9CA3AF' }}>Select approximate size...</option>
-                      {['Under 500 sq ft', '500–1,000 sq ft', '1,000–2,500 sq ft', '2,500–5,000 sq ft', '5,000+ sq ft'].map(s => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                    {errors.spaceSize && <p style={ERROR_MSG}>{errors.spaceSize}</p>}
-                  </div>
-                  <div>
-                    <label style={FIELD_LABEL}>Estimated Timeframe *</label>
-                    <select name="timeframe" value={form.timeframe} onChange={handleChange} onFocus={() => setFocused('timeframe')} onBlur={() => setFocused(null)} style={selectStyle('timeframe', !!form.timeframe)}>
-                      <option value="" disabled style={{ color: '#9CA3AF' }}>Select timeframe...</option>
-                      {['ASAP', 'Within 1 month', '1–3 months', '3–6 months', 'Just exploring'].map(s => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                    {errors.timeframe && <p style={ERROR_MSG}>{errors.timeframe}</p>}
-                  </div>
+                <div style={{ marginBottom: '16px' }}>
+                  <label style={FIELD_LABEL}>Estimated Timeframe *</label>
+                  <select name="timeframe" value={form.timeframe} onChange={handleChange} onFocus={() => setFocused('timeframe')} onBlur={() => setFocused(null)} style={selectStyle('timeframe', !!form.timeframe)}>
+                    <option value="" disabled style={{ color: '#9CA3AF' }}>Select timeframe...</option>
+                    {['ASAP', 'Within 1 month', '1–3 months', '3–6 months', 'Just exploring'].map(s => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                  {errors.timeframe && <p style={ERROR_MSG}>{errors.timeframe}</p>}
                 </div>
 
                 <div style={{ marginBottom: '16px' }}>
@@ -351,11 +337,6 @@ export default function ContactPage() {
                 <div style={{ marginBottom: '16px' }}>
                   <label style={FIELD_LABEL}>Issues to Address</label>
                   <textarea name="issues" placeholder="e.g., Poor drainage, dead lawn, overgrown beds..." value={form.issues} onChange={handleChange} onFocus={() => setFocused('issues')} onBlur={() => setFocused(null)} className="light-placeholder" style={{ ...fieldStyle('issues'), resize: 'vertical', minHeight: '100px' }} />
-                </div>
-
-                <div style={{ marginTop: '20px' }}>
-                  <label style={FIELD_LABEL}>Additional Details</label>
-                  <textarea name="additionalDetails" placeholder="Tell us anything else about your vision, must-haves, or concerns..." value={form.additionalDetails} onChange={handleChange} onFocus={() => setFocused('additionalDetails')} onBlur={() => setFocused(null)} className="light-placeholder" style={{ ...fieldStyle('additionalDetails'), resize: 'vertical', minHeight: '120px' }} />
                 </div>
 
                 <button

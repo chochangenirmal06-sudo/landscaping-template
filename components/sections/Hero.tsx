@@ -20,7 +20,7 @@ export default function Hero() {
 
       {/* Background image */}
       <Image
-        src="/images/hero-bg.png"
+        src={clientConfig.heroBg ?? "/images/hero-bg.png"}
         alt={`${business.fullName} ${business.city}`}
         fill priority quality={92} sizes="100vw"
         className="object-cover object-center z-0"

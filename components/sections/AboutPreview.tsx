@@ -5,12 +5,7 @@ import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { clientConfig } from "@/lib/client.config";
 
-const VALUE_PILLS = [
-  `${clientConfig.business.stats.projectsCompleted} Projects Completed`,
-  "Family Owned & Operated",
-  "Licensed & Insured",
-  "Free Consultations",
-];
+const VALUE_PILLS = clientConfig.about.valuePills;
 
 export default function AboutPreview() {
   return (
@@ -25,8 +20,8 @@ export default function AboutPreview() {
 
           <div className="relative overflow-hidden rounded-xl lg:rounded-[20px]">
             <Image
-              src="/images/landscape-design.png"
-              alt={`Professional landscaping by ${clientConfig.business.fullName} ${clientConfig.business.city} TX`}
+              src={clientConfig.about.images[0]}
+              alt={`Professional landscaping by ${clientConfig.business.fullName} ${clientConfig.business.city} ${clientConfig.business.state}`}
               width={700}
               height={520}
               className="w-full h-auto block object-cover"
@@ -191,7 +186,7 @@ export default function AboutPreview() {
               (e.currentTarget as HTMLAnchorElement).style.background = "var(--color-accent-dark)";
             }}
           >
-            VIEW MORE DETAILS →
+            {((clientConfig.business as typeof clientConfig.business & { aboutCtaLabel?: string }).aboutCtaLabel ?? "View More Details").toUpperCase()} →
           </Link>
 
         </div>

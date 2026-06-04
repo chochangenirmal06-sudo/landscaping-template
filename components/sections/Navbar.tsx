@@ -68,7 +68,8 @@ export default function Navbar() {
                 alt={clientConfig.business.name}
                 width={480}
                 height={156}
-                className="h-[33px] w-auto object-contain"
+                style={{ height: `${clientConfig.logoSize ?? 100}px`, width: "auto" }}
+                className="object-contain"
                 priority
               />
             ) : (

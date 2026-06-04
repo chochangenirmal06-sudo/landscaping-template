@@ -1,32 +1,24 @@
 "use client";
 
-import { Users, Home, MessageCircle, Shield } from "lucide-react";
+import { Clock, Award, MessageCircle, Shield, Users, Home, Leaf, Star } from "lucide-react";
 import { clientConfig } from "@/lib/client.config";
 
-const { city, stats } = clientConfig.business;
+const ICON_MAP: Record<string, React.ElementType> = {
+  clock: Clock,
+  award: Award,
+  "message-circle": MessageCircle,
+  shield: Shield,
+  users: Users,
+  home: Home,
+  leaf: Leaf,
+  star: Star,
+};
 
-const CARDS = [
-  {
-    Icon: Users,
-    title: `${stats.yearsExperience} Years of Experience`,
-    body: `We've been proudly serving Greater ${city} with expert landscape care for over a decade.`,
-  },
-  {
-    Icon: Home,
-    title: "Local & Family-Owned",
-    body: `We're part of the ${city} community and treat every yard like our own — no call centers, no franchises.`,
-  },
-  {
-    Icon: MessageCircle,
-    title: "Clear, Direct Communication",
-    body: "You work directly with our team — no middlemen, no surprises, just honest and transparent service.",
-  },
-  {
-    Icon: Shield,
-    title: "Reliable & Fair Pricing",
-    body: "Count on us for on-time service, no hidden fees, and competitive rates that respect your budget.",
-  },
-];
+const CARDS = clientConfig.whyChooseUs.cards.map((card) => ({
+  Icon: ICON_MAP[card.icon] ?? Shield,
+  title: card.title,
+  body: card.body,
+}));
 
 export default function WhyChooseUs() {
   return (
@@ -125,7 +117,7 @@ export default function WhyChooseUs() {
             <Icon
               size={48}
               strokeWidth={1.5}
-              style={{ color: "var(--color-accent-dark)", marginBottom: "20px", display: "block" }}
+              style={{ color: "var(--color-accent)", marginBottom: "20px", display: "block" }}
             />
 
             {/* Title */}

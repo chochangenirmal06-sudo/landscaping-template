@@ -79,13 +79,13 @@ export default function AboutPage() {
               style={{ height: "540px" }}
             >
               <div className="absolute bottom-0 right-0 overflow-hidden rounded-2xl shadow-2xl" style={{ width: "76%", height: "400px" }}>
-                <Image src="/images/portfolio3.png" alt="Landscaping craftsmanship" fill loading="eager" sizes="55vw" className="object-cover" />
+                <Image src={about.images?.[0] ?? "/images/gallery1.jpg"} alt="Landscaping craftsmanship" fill loading="eager" sizes="55vw" className="object-cover" />
               </div>
               <div
                 className="absolute top-0 left-0 overflow-hidden rounded-2xl shadow-xl"
                 style={{ width: "64%", height: "330px", border: "4px solid var(--color-bg)" }}
               >
-                <Image src="/images/portfolio2.png" alt="Landscape design detail" fill loading="eager" sizes="55vw" className="object-cover" />
+                <Image src={about.images?.[1] ?? "/images/gallery2.jpg"} alt="Landscape design detail" fill loading="eager" sizes="55vw" className="object-cover" />
               </div>
               <div
                 className="absolute bottom-6 left-5 z-10 px-4 py-2 rounded-lg"

@@ -5,18 +5,20 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { clientConfig } from "@/lib/client.config";
 
-const activeServices = clientConfig.services.filter(s => s.active);
+const allActiveServices = clientConfig.services.filter(s => s.active);
+const limit = (clientConfig as typeof clientConfig & { homepageServicesLimit?: number }).homepageServicesLimit ?? 6;
+const activeServices = allActiveServices.slice(0, limit);
 
-const DEFAULT_IMAGES = [
-  "/images/Lawn%20Care%20%26%20Maintenance1.png",
-  "/images/Landscape%20Design1.png",
-  "/images/Irrigation%20Systems1.png",
-  "/images/Hardscaping%20%26%20Patios1.png",
-  "/images/Seasonal%20Cleanup1.png",
-  "/images/Tree%20%26%20Shrub%20Care1.png",
-  "/images/Mulching%20%26%20Soil%20Health1.png",
-  "/images/Garden%20Bed%20Design1.png",
-];
+// One fallback image per service slug — used only when service.image is not yet set.
+const FALLBACK_BY_SLUG: Record<string, string> = {
+  "landscape-installation":          "/images/Landscape%20Design1.png",
+  "lawn-maintenance":                 "/images/Lawn%20Care%20%26%20Maintenance1.png",
+  "lawn-weed-control-disease-insect": "/images/Tree%20%26%20Shrub%20Care1.png",
+  "paver-installation":               "/images/Hardscaping%20%26%20Patios1.png",
+  "sod-installation":                 "/images/Lawn%20Care%20%26%20Maintenance2.png",
+  "drainage-systems-sump-pumps":      "/images/Irrigation%20Systems1.png",
+  "vista-clearing-light-carpentry":   "/images/Seasonal%20Cleanup1.png",
+};
 
 const cardVariants = {
   hidden: { y: 40 },
@@ -71,7 +73,7 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.1 }}
         >
-          {activeServices.map((service, index) => (
+          {activeServices.map((service) => (
             <motion.div
               key={service.name}
               variants={cardVariants}
@@ -80,7 +82,7 @@ export default function Services() {
               {/* Image */}
               <div className="relative w-full aspect-[3/2] overflow-hidden">
                 <Image
-                  src={service.image || DEFAULT_IMAGES[index % DEFAULT_IMAGES.length]}
+                  src={service.image || FALLBACK_BY_SLUG[service.slug] || "/images/Landscape%20Design1.png"}
                   alt={service.name}
                   fill
                   loading="eager"
@@ -108,9 +110,9 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <a href="/#estimate" className="mt-4 inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300 text-brand-accent text-sm font-medium">
-                  {clientConfig.business.ctaLabel} →
-                </a>
+                <Link href={`/services/${service.slug}`} className="mt-4 inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300 text-brand-accent text-sm font-medium">
+                  {(clientConfig.business as typeof clientConfig.business & { serviceCardCtaLabel?: string }).serviceCardCtaLabel ?? "Learn More"} →
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -120,7 +122,7 @@ export default function Services() {
         <div className="flex justify-center mt-16">
           <Link href="/services">
             <button className="border-2 border-brand-primary text-brand-bg-text px-10 py-4 rounded-full text-sm font-semibold tracking-widest uppercase hover:bg-brand-primary hover:text-white transition-all duration-300 font-dmsans">
-              See All Services
+              {(clientConfig.business as typeof clientConfig.business & { seeAllServicesLabel?: string }).seeAllServicesLabel ?? "See All Services"}
             </button>
           </Link>
         </div>
