@@ -38,7 +38,6 @@ function XIcon() {
 const SOCIALS = [
   { label: "Instagram", Icon: InstagramIcon, href: clientConfig.social.instagram },
   { label: "Facebook",  Icon: FacebookIcon,  href: clientConfig.social.facebook  },
-  { label: "X",         Icon: XIcon,         href: clientConfig.social.twitter   },
 ];
 
 export default function Footer() {
@@ -83,7 +82,7 @@ export default function Footer() {
               {activeServices.map((service) => (
                 <li key={service.slug}>
                   <a
-                    href={`/services/${service.slug}`}
+                    href="/services"
                     className="font-dmsans text-sm uppercase tracking-widest text-brand-primary-text/55 hover:text-brand-primary-text transition-colors duration-200"
                   >
                     {service.name}

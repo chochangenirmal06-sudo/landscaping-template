@@ -110,8 +110,8 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <Link href={`/services/${service.slug}`} className="mt-4 inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300 text-brand-accent text-sm font-medium">
-                  {(clientConfig.business as typeof clientConfig.business & { serviceCardCtaLabel?: string }).serviceCardCtaLabel ?? "Learn More"} →
+                <Link href="/contact" className="mt-4 inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300 text-brand-accent text-sm font-medium">
+                  {(clientConfig.business as typeof clientConfig.business & { serviceCardCtaLabel?: string }).serviceCardCtaLabel ?? "Get a Quote"} →
                 </Link>
               </div>
             </motion.div>

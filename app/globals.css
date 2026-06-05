@@ -23,8 +23,8 @@ html, body {
   0%   { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
-.marquee-left  { animation: marquee-left  35s linear infinite; }
-.marquee-right { animation: marquee-right 40s linear infinite; }
+.marquee-left  { animation: marquee-left  60s linear infinite; }
+.marquee-right { animation: marquee-right 70s linear infinite; }
 
 .row-1:hover .marquee-right { animation-play-state: paused; }
 .row-2:hover .marquee-left  { animation-play-state: paused; }

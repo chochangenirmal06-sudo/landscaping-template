@@ -17,7 +17,7 @@ const CONTACT_CARDS = [
 
 type FormData = {
   fullName: string; email: string; phone: string; streetAddress: string;
-  service: string; timeframe: string; budget: string; issues: string;
+  service: string; issues: string;
 };
 type ScalarField = keyof FormData;
 type FormErrors = Partial<Record<ScalarField, string>>;
@@ -40,7 +40,7 @@ export default function ContactPage() {
 
   const [form, setForm] = useState<FormData>({
     fullName: '', email: '', phone: '', streetAddress: '',
-    service: '', timeframe: '', budget: '', issues: '',
+    service: '', issues: '',
   });
 
   const fieldStyle = (name: string): React.CSSProperties => ({
@@ -99,8 +99,6 @@ export default function ContactPage() {
     else if (form.phone.replace(/\D/g, '').length < 10) e.phone = 'Enter a 10-digit phone number.';
     if (!form.streetAddress.trim())  e.streetAddress = 'Street address is required.';
     if (!form.service)               e.service       = 'Please select a service.';
-    if (!form.timeframe)             e.timeframe     = 'Please select a timeframe.';
-    if (!form.budget)                e.budget        = 'Please select a budget.';
     return e;
   };
 
@@ -120,7 +118,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           fullName: form.fullName, email: form.email, phone: form.phone,
           streetAddress: form.streetAddress, serviceNeeded: form.service,
-          timeframe: form.timeframe, budget: form.budget, issues: form.issues,
+          issues: form.issues,
         }),
       });
       if (response.ok) {
@@ -314,24 +312,6 @@ export default function ContactPage() {
                     <option value="not-sure">Not Sure — Help Me Decide</option>
                   </select>
                   {errors.service && <p style={ERROR_MSG}>{errors.service}</p>}
-                </div>
-
-                <div style={{ marginBottom: '16px' }}>
-                  <label style={FIELD_LABEL}>Estimated Timeframe *</label>
-                  <select name="timeframe" value={form.timeframe} onChange={handleChange} onFocus={() => setFocused('timeframe')} onBlur={() => setFocused(null)} style={selectStyle('timeframe', !!form.timeframe)}>
-                    <option value="" disabled style={{ color: '#9CA3AF' }}>Select timeframe...</option>
-                    {['ASAP', 'Within 1 month', '1–3 months', '3–6 months', 'Just exploring'].map(s => <option key={s} value={s}>{s}</option>)}
-                  </select>
-                  {errors.timeframe && <p style={ERROR_MSG}>{errors.timeframe}</p>}
-                </div>
-
-                <div style={{ marginBottom: '16px' }}>
-                  <label style={FIELD_LABEL}>Estimated Budget *</label>
-                  <select name="budget" value={form.budget} onChange={handleChange} onFocus={() => setFocused('budget')} onBlur={() => setFocused(null)} style={selectStyle('budget', !!form.budget)}>
-                    <option value="" disabled style={{ color: '#9CA3AF' }}>Select budget range...</option>
-                    {['Under $1,000', '$1,000–$3,000', '$3,000–$7,500', '$7,500–$15,000', '$15,000–$30,000', '$30,000+', 'Not sure yet'].map(s => <option key={s} value={s}>{s}</option>)}
-                  </select>
-                  {errors.budget && <p style={ERROR_MSG}>{errors.budget}</p>}
                 </div>
 
                 <div style={{ marginBottom: '16px' }}>

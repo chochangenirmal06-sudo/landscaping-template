@@ -70,24 +70,8 @@ export async function POST(req: NextRequest) {
             <td style="padding: 8px 0; color: ${colors.bgText}; font-size: 13px; font-weight: 600;">${body.serviceNeeded || '—'}</td>
           </tr>
           <tr>
-            <td style="padding: 8px 0; color: ${colors.textMuted}; font-size: 13px;">Space Size</td>
-            <td style="padding: 8px 0; color: ${colors.bgText}; font-size: 13px; font-weight: 600;">${body.spaceToLandscape || '—'}</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px 0; color: ${colors.textMuted}; font-size: 13px;">Timeframe</td>
-            <td style="padding: 8px 0; color: ${colors.bgText}; font-size: 13px; font-weight: 600;">${body.timeframe || '—'}</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px 0; color: ${colors.textMuted}; font-size: 13px;">Budget</td>
-            <td style="padding: 8px 0; color: ${colors.bgText}; font-size: 13px; font-weight: 600;">${body.budget || '—'}</td>
-          </tr>
-          <tr>
             <td style="padding: 8px 0; color: ${colors.textMuted}; font-size: 13px; vertical-align: top;">Issues to Address</td>
             <td style="padding: 8px 0; color: ${colors.bgText}; font-size: 13px; font-weight: 600;">${body.issues || 'Not specified'}</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px 0; color: ${colors.textMuted}; font-size: 13px; vertical-align: top;">Additional Details</td>
-            <td style="padding: 8px 0; color: ${colors.bgText}; font-size: 13px; font-weight: 600;">${body.additionalDetails || 'None'}</td>
           </tr>
         </table>
 

@@ -34,7 +34,7 @@ export default function Hero() {
 
       {/* Centered content */}
       <div className="relative z-[2] flex-1 flex flex-col items-center justify-center text-center px-5 sm:px-8 pt-[160px] pb-14 sm:pb-20 lg:pb-24">
-        <div className="w-full max-w-[800px]">
+        <div className="w-full max-w-[960px]">
 
           {/* Location label */}
           <p className="hero-label font-dmsans font-bold uppercase text-white mb-4 sm:mb-5">
@@ -133,7 +133,7 @@ export default function Hero() {
       <style>{`
         .hero-label    { font-size: 9px; letter-spacing: 0.14em; }
         .hero-line1    { font-size: clamp(26px, 5.2vw, 68px); overflow-wrap: break-word; }
-        .hero-line2    { font-size: clamp(42px, 8.5vw, 108px); overflow-wrap: break-word; word-break: break-word; }
+        .hero-line2    { font-size: clamp(36px, 5.8vw, 64px); overflow-wrap: break-word; word-break: break-word; }
         .hero-subtitle { font-size: clamp(14px, 1.8vw, 17px); overflow-wrap: break-word; }
 
         @media (min-width: 480px) {

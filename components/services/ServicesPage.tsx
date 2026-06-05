@@ -106,11 +106,11 @@ export default function ServicesPage() {
                   ))}
                 </ul>
                 <Link
-                  href={`/services/${s.slug}`}
+                  href="/contact"
                   className="inline-flex items-center gap-1 mt-5 font-dmsans text-sm font-semibold tracking-wide hover:opacity-70 transition-opacity duration-200"
                   style={{ color: "var(--color-accent)" }}
                 >
-                  Learn More →
+                  {(clientConfig.business as typeof clientConfig.business & { serviceCardCtaLabel?: string }).serviceCardCtaLabel ?? "Get a Quote"} →
                 </Link>
               </div>
             </motion.div>
